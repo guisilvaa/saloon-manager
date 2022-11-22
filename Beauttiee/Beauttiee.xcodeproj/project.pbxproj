@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */; };
+		CFFE16BA292D03A50030DD1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B9292D03A50030DD1D /* ContentView.swift */; };
+		CFFE16BC292D03A50030DD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFE16BB292D03A50030DD1D /* Assets.xcassets */; };
+		CFFE16BF292D03A50030DD1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFE16BE292D03A50030DD1D /* Preview Assets.xcassets */; };
+		CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16C0292D03A50030DD1D /* Persistence.swift */; };
+		CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16C2292D03A50030DD1D /* Beauttiee.xcdatamodeld */; };
+		CFFE16CE292D03A60030DD1D /* BeauttieeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16CD292D03A60030DD1D /* BeauttieeTests.swift */; };
+		CFFE16D8292D03A60030DD1D /* BeauttieeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16D7292D03A60030DD1D /* BeauttieeUITests.swift */; };
+		CFFE16DA292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16D9292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFFE16CA292D03A60030DD1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFFE16AC292D03A50030DD1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFFE16B3292D03A50030DD1D;
+			remoteInfo = Beauttiee;
+		};
+		CFFE16D4292D03A60030DD1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFFE16AC292D03A50030DD1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFFE16B3292D03A50030DD1D;
+			remoteInfo = Beauttiee;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CFFE16B4292D03A50030DD1D /* Beauttiee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauttiee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeApp.swift; sourceTree = "<group>"; };
+		CFFE16B9292D03A50030DD1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CFFE16BB292D03A50030DD1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFFE16BE292D03A50030DD1D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CFFE16C0292D03A50030DD1D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		CFFE16C3292D03A50030DD1D /* Beauttiee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Beauttiee.xcdatamodel; sourceTree = "<group>"; };
+		CFFE16C9292D03A60030DD1D /* BeauttieeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeauttieeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFFE16CD292D03A60030DD1D /* BeauttieeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeTests.swift; sourceTree = "<group>"; };
+		CFFE16D3292D03A60030DD1D /* BeauttieeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeauttieeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFFE16D7292D03A60030DD1D /* BeauttieeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeUITests.swift; sourceTree = "<group>"; };
+		CFFE16D9292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFFE16B1292D03A50030DD1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFE16C6292D03A60030DD1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFE16D0292D03A60030DD1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFFE16AB292D03A50030DD1D = {
+			isa = PBXGroup;
+			children = (
+				CFFE16B6292D03A50030DD1D /* Beauttiee */,
+				CFFE16CC292D03A60030DD1D /* BeauttieeTests */,
+				CFFE16D6292D03A60030DD1D /* BeauttieeUITests */,
+				CFFE16B5292D03A50030DD1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFFE16B5292D03A50030DD1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16B4292D03A50030DD1D /* Beauttiee.app */,
+				CFFE16C9292D03A60030DD1D /* BeauttieeTests.xctest */,
+				CFFE16D3292D03A60030DD1D /* BeauttieeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFFE16B6292D03A50030DD1D /* Beauttiee */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */,
+				CFFE16B9292D03A50030DD1D /* ContentView.swift */,
+				CFFE16BB292D03A50030DD1D /* Assets.xcassets */,
+				CFFE16C0292D03A50030DD1D /* Persistence.swift */,
+				CFFE16C2292D03A50030DD1D /* Beauttiee.xcdatamodeld */,
+				CFFE16BD292D03A50030DD1D /* Preview Content */,
+			);
+			path = Beauttiee;
+			sourceTree = "<group>";
+		};
+		CFFE16BD292D03A50030DD1D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16BE292D03A50030DD1D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CFFE16CC292D03A60030DD1D /* BeauttieeTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16CD292D03A60030DD1D /* BeauttieeTests.swift */,
+			);
+			path = BeauttieeTests;
+			sourceTree = "<group>";
+		};
+		CFFE16D6292D03A60030DD1D /* BeauttieeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16D7292D03A60030DD1D /* BeauttieeUITests.swift */,
+				CFFE16D9292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift */,
+			);
+			path = BeauttieeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFFE16B3292D03A50030DD1D /* Beauttiee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFFE16DD292D03A60030DD1D /* Build configuration list for PBXNativeTarget "Beauttiee" */;
+			buildPhases = (
+				CFFE16B0292D03A50030DD1D /* Sources */,
+				CFFE16B1292D03A50030DD1D /* Frameworks */,
+				CFFE16B2292D03A50030DD1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Beauttiee;
+			productName = Beauttiee;
+			productReference = CFFE16B4292D03A50030DD1D /* Beauttiee.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CFFE16C8292D03A60030DD1D /* BeauttieeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFFE16E0292D03A60030DD1D /* Build configuration list for PBXNativeTarget "BeauttieeTests" */;
+			buildPhases = (
+				CFFE16C5292D03A60030DD1D /* Sources */,
+				CFFE16C6292D03A60030DD1D /* Frameworks */,
+				CFFE16C7292D03A60030DD1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFFE16CB292D03A60030DD1D /* PBXTargetDependency */,
+			);
+			name = BeauttieeTests;
+			productName = BeauttieeTests;
+			productReference = CFFE16C9292D03A60030DD1D /* BeauttieeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CFFE16D2292D03A60030DD1D /* BeauttieeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFFE16E3292D03A60030DD1D /* Build configuration list for PBXNativeTarget "BeauttieeUITests" */;
+			buildPhases = (
+				CFFE16CF292D03A60030DD1D /* Sources */,
+				CFFE16D0292D03A60030DD1D /* Frameworks */,
+				CFFE16D1292D03A60030DD1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFFE16D5292D03A60030DD1D /* PBXTargetDependency */,
+			);
+			name = BeauttieeUITests;
+			productName = BeauttieeUITests;
+			productReference = CFFE16D3292D03A60030DD1D /* BeauttieeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFFE16AC292D03A50030DD1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					CFFE16B3292D03A50030DD1D = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					CFFE16C8292D03A60030DD1D = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = CFFE16B3292D03A50030DD1D;
+					};
+					CFFE16D2292D03A60030DD1D = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = CFFE16B3292D03A50030DD1D;
+					};
+				};
+			};
+			buildConfigurationList = CFFE16AF292D03A50030DD1D /* Build configuration list for PBXProject "Beauttiee" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFFE16AB292D03A50030DD1D;
+			productRefGroup = CFFE16B5292D03A50030DD1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFFE16B3292D03A50030DD1D /* Beauttiee */,
+				CFFE16C8292D03A60030DD1D /* BeauttieeTests */,
+				CFFE16D2292D03A60030DD1D /* BeauttieeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFFE16B2292D03A50030DD1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFFE16BF292D03A50030DD1D /* Preview Assets.xcassets in Resources */,
+				CFFE16BC292D03A50030DD1D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFE16C7292D03A60030DD1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFE16D1292D03A60030DD1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFFE16B0292D03A50030DD1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */,
+				CFFE16BA292D03A50030DD1D /* ContentView.swift in Sources */,
+				CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */,
+				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFE16C5292D03A60030DD1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFFE16CE292D03A60030DD1D /* BeauttieeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFE16CF292D03A60030DD1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFFE16D8292D03A60030DD1D /* BeauttieeUITests.swift in Sources */,
+				CFFE16DA292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFFE16CB292D03A60030DD1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFFE16B3292D03A50030DD1D /* Beauttiee */;
+			targetProxy = CFFE16CA292D03A60030DD1D /* PBXContainerItemProxy */;
+		};
+		CFFE16D5292D03A60030DD1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFFE16B3292D03A50030DD1D /* Beauttiee */;
+			targetProxy = CFFE16D4292D03A60030DD1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CFFE16DB292D03A60030DD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFFE16DC292D03A60030DD1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFFE16DE292D03A60030DD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Beauttiee/Preview Content\"";
+				DEVELOPMENT_TEAM = 4ZL94F555A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.Beauttiee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFFE16DF292D03A60030DD1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Beauttiee/Preview Content\"";
+				DEVELOPMENT_TEAM = 4ZL94F555A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.Beauttiee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CFFE16E1292D03A60030DD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZL94F555A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.BeauttieeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Beauttiee.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Beauttiee";
+			};
+			name = Debug;
+		};
+		CFFE16E2292D03A60030DD1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZL94F555A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.BeauttieeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Beauttiee.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Beauttiee";
+			};
+			name = Release;
+		};
+		CFFE16E4292D03A60030DD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZL94F555A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.BeauttieeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Beauttiee;
+			};
+			name = Debug;
+		};
+		CFFE16E5292D03A60030DD1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4ZL94F555A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.BeauttieeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Beauttiee;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFFE16AF292D03A50030DD1D /* Build configuration list for PBXProject "Beauttiee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFFE16DB292D03A60030DD1D /* Debug */,
+				CFFE16DC292D03A60030DD1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFFE16DD292D03A60030DD1D /* Build configuration list for PBXNativeTarget "Beauttiee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFFE16DE292D03A60030DD1D /* Debug */,
+				CFFE16DF292D03A60030DD1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFFE16E0292D03A60030DD1D /* Build configuration list for PBXNativeTarget "BeauttieeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFFE16E1292D03A60030DD1D /* Debug */,
+				CFFE16E2292D03A60030DD1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFFE16E3292D03A60030DD1D /* Build configuration list for PBXNativeTarget "BeauttieeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFFE16E4292D03A60030DD1D /* Debug */,
+				CFFE16E5292D03A60030DD1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CFFE16C2292D03A50030DD1D /* Beauttiee.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CFFE16C3292D03A50030DD1D /* Beauttiee.xcdatamodel */,
+			);
+			currentVersion = CFFE16C3292D03A50030DD1D /* Beauttiee.xcdatamodel */;
+			path = Beauttiee.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CFFE16AC292D03A50030DD1D /* Project object */;
+}
