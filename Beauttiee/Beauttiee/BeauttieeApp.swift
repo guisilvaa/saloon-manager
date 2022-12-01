@@ -13,7 +13,7 @@ struct BeauttieeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ServicesView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

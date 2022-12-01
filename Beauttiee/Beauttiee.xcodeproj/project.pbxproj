@@ -16,6 +16,9 @@
 		CFFE16CE292D03A60030DD1D /* BeauttieeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16CD292D03A60030DD1D /* BeauttieeTests.swift */; };
 		CFFE16D8292D03A60030DD1D /* BeauttieeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16D7292D03A60030DD1D /* BeauttieeUITests.swift */; };
 		CFFE16DA292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16D9292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift */; };
+		CFFE16EA292D342B0030DD1D /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16E9292D342B0030DD1D /* ServicesView.swift */; };
+		CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16EC292D6D8C0030DD1D /* EmptyViewModifier.swift */; };
+		CFFE16F0292D6E130030DD1D /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16EF292D6E130030DD1D /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		CFFE16D3292D03A60030DD1D /* BeauttieeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeauttieeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFE16D7292D03A60030DD1D /* BeauttieeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeUITests.swift; sourceTree = "<group>"; };
 		CFFE16D9292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CFFE16E9292D342B0030DD1D /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
+		CFFE16EC292D6D8C0030DD1D /* EmptyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewModifier.swift; sourceTree = "<group>"; };
+		CFFE16EF292D6E130030DD1D /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,9 @@
 		CFFE16B6292D03A50030DD1D /* Beauttiee */ = {
 			isa = PBXGroup;
 			children = (
+				CFFE16EE292D6DFC0030DD1D /* Extensions */,
+				CFFE16EB292D6D3A0030DD1D /* Commons */,
+				CFFE16E6292D33550030DD1D /* Service */,
 				CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */,
 				CFFE16B9292D03A50030DD1D /* ContentView.swift */,
 				CFFE16BB292D03A50030DD1D /* Assets.xcassets */,
@@ -131,6 +140,46 @@
 				CFFE16D9292D03A60030DD1D /* BeauttieeUITestsLaunchTests.swift */,
 			);
 			path = BeauttieeUITests;
+			sourceTree = "<group>";
+		};
+		CFFE16E6292D33550030DD1D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16E8292D33AA0030DD1D /* ViewModel */,
+				CFFE16E7292D339D0030DD1D /* View */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CFFE16E7292D339D0030DD1D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16E9292D342B0030DD1D /* ServicesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFFE16E8292D33AA0030DD1D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CFFE16EB292D6D3A0030DD1D /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16EC292D6D8C0030DD1D /* EmptyViewModifier.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		CFFE16EE292D6DFC0030DD1D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE16EF292D6E130030DD1D /* ViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFFE16EA292D342B0030DD1D /* ServicesView.swift in Sources */,
 				CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */,
 				CFFE16BA292D03A50030DD1D /* ContentView.swift in Sources */,
+				CFFE16F0292D6E130030DD1D /* ViewExtension.swift in Sources */,
 				CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */,
 				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
+				CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
