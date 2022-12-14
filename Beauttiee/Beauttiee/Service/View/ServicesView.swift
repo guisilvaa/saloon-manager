@@ -25,7 +25,7 @@ struct ServicesView: View {
                 }
             }
             .emptyView(services.isEmpty) {
-                Button(action: navigateToAddItem) {
+                NavigationLink(destination: ServiceDetailView().environment(\.managedObjectContext, viewContext)) {
                     VStack {
                         Image(systemName: "plus.circle")
                         Text("Nenhum serviço cadastrado!")
@@ -34,6 +34,7 @@ struct ServicesView: View {
                 }
             }
             .navigationTitle("Serviços")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem {
                     Button(action: navigateToAddItem) {

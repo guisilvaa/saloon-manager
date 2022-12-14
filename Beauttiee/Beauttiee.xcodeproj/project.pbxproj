@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
+		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
 		CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */; };
-		CFFE16BA292D03A50030DD1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B9292D03A50030DD1D /* ContentView.swift */; };
 		CFFE16BC292D03A50030DD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFE16BB292D03A50030DD1D /* Assets.xcassets */; };
 		CFFE16BF292D03A50030DD1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFE16BE292D03A50030DD1D /* Preview Assets.xcassets */; };
 		CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16C0292D03A50030DD1D /* Persistence.swift */; };
@@ -39,9 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
+		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
 		CFFE16B4292D03A50030DD1D /* Beauttiee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauttiee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeApp.swift; sourceTree = "<group>"; };
-		CFFE16B9292D03A50030DD1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CFFE16BB292D03A50030DD1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFFE16BE292D03A50030DD1D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CFFE16C0292D03A50030DD1D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -81,6 +83,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF7EF85A29391FD400D1F237 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CF7EF85B29391FDE00D1F237 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		CF7EF85B29391FDE00D1F237 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF7EF85E293927BA00D1F237 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF7EF85F293927D200D1F237 /* ServiceDuration.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CFFE16AB292D03A50030DD1D = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +134,6 @@
 				CFFE16EB292D6D3A0030DD1D /* Commons */,
 				CFFE16E6292D33550030DD1D /* Service */,
 				CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */,
-				CFFE16B9292D03A50030DD1D /* ContentView.swift */,
 				CFFE16BB292D03A50030DD1D /* Assets.xcassets */,
 				CFFE16C0292D03A50030DD1D /* Persistence.swift */,
 				CFFE16C2292D03A50030DD1D /* Beauttiee.xcdatamodeld */,
@@ -145,6 +170,8 @@
 		CFFE16E6292D33550030DD1D /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CF7EF85E293927BA00D1F237 /* Model */,
+				CF7EF85A29391FD400D1F237 /* Detail */,
 				CFFE16E8292D33AA0030DD1D /* ViewModel */,
 				CFFE16E7292D339D0030DD1D /* View */,
 			);
@@ -313,9 +340,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFFE16EA292D342B0030DD1D /* ServicesView.swift in Sources */,
+				CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */,
 				CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */,
-				CFFE16BA292D03A50030DD1D /* ContentView.swift in Sources */,
 				CFFE16F0292D6E130030DD1D /* ViewExtension.swift in Sources */,
+				CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */,
 				CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */,
 				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
 				CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */,
