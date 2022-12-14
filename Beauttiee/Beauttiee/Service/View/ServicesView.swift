@@ -23,6 +23,7 @@ struct ServicesView: View {
                 ForEach(services, id: \.id) { service in
                     ServiceItemView(service: service)
                 }
+                .onDelete(perform: delete)
             }
             .emptyView(services.isEmpty) {
                 NavigationLink(destination: ServiceDetailView().environment(\.managedObjectContext, viewContext)) {
@@ -48,6 +49,13 @@ struct ServicesView: View {
     private func navigateToAddItem() {
         withAnimation {
             
+        }
+    }
+    
+    func delete(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { services[$0] }.forEach(viewContext.delete)
+            try? viewContext.save()
         }
     }
 }
