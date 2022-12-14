@@ -14,6 +14,8 @@ enum ServiceDuration: Int, CaseIterable {
     case twoHours = 120
     case twoHalfHours = 150
     case threeHours = 180
+    case fourHours = 240
+    case day = 1
     
     var description: String {
         switch self {
@@ -29,6 +31,10 @@ enum ServiceDuration: Int, CaseIterable {
             return "2 horas e 30 minutos"
         case .threeHours:
             return "3 horas"
+        case .fourHours:
+            return "4 horas"
+        case .day:
+            return "Dia todo"
         }
     }
 }
