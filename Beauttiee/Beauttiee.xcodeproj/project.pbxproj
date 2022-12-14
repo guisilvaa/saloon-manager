@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */; };
+		CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A532294A3BBD0007ADE1 /* CurrencyText */; };
+		CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
 		CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */; };
@@ -63,6 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */,
+				CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */,
+				CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +231,11 @@
 			dependencies = (
 			);
 			name = Beauttiee;
+			packageProductDependencies = (
+				CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */,
+				CF33A532294A3BBD0007ADE1 /* CurrencyText */,
+				CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */,
+			);
 			productName = Beauttiee;
 			productReference = CFFE16B4292D03A50030DD1D /* Beauttiee.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +308,9 @@
 				Base,
 			);
 			mainGroup = CFFE16AB292D03A50030DD1D;
+			packageReferences = (
+				CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */,
+			);
 			productRefGroup = CFFE16B5292D03A50030DD1D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -671,6 +685,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marinofelipe/CurrencyText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyFormatter;
+		};
+		CF33A532294A3BBD0007ADE1 /* CurrencyText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyText;
+		};
+		CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyTextSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CFFE16C2292D03A50030DD1D /* Beauttiee.xcdatamodeld */ = {

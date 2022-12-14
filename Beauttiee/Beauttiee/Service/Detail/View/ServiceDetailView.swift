@@ -6,24 +6,24 @@
 //
 
 import SwiftUI
+import CurrencyTextField
+import CurrencyFormatter
 
 struct ServiceDetailView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
     @State var name: String = ""
-    @State var price: Double = 0.0
+    @State var price: Double? = 0.0
+    @State var priceText: String = ""
+    @State var cost: Double? = 0.0
+    @State var costText: String = ""
+    @State private var currencyFormatter = CurrencyFormatter.init {
+        $0.currency = .brazilianReal
+        $0.locale = CurrencyLocale.portugueseBrazil
+    }
     @State private var serviceDurationSelectedIndex = 0
     private let serviceDurations = ServiceDuration.allCases
-    
-    private let numberFormatter: NumberFormatter
-        
-        init() {
-            numberFormatter = NumberFormatter()
-            numberFormatter.numberStyle = .currency
-            numberFormatter.currencyCode = "BRL"
-            numberFormatter.maximumFractionDigits = 2
-        }
     
     var body: some View {
         NavigationView{
@@ -34,9 +34,20 @@ struct ServiceDetailView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     Section {
-                        TextField("Preço", value: $price, formatter: numberFormatter)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .keyboardType(.numberPad)
+                        CurrencyTextField(
+                            configuration: CurrencyTextFieldConfiguration(placeholder: "Preço",
+                                                                          text: $priceText,
+                                                                          inputAmount: $price,
+                                                                          formatter: $currencyFormatter,
+                                                                          textFieldConfiguration: nil))
+                    }
+                    Section {
+                        CurrencyTextField(
+                            configuration: CurrencyTextFieldConfiguration(placeholder: "Custo",
+                                                                          text: $costText,
+                                                                          inputAmount: $cost,
+                                                                          formatter: $currencyFormatter,
+                                                                          textFieldConfiguration: nil))
                     }
                     Section {
                         Picker(selection: $serviceDurationSelectedIndex, label: Text("Duração")) {
@@ -64,8 +75,8 @@ struct ServiceDetailView: View {
             let service = Service(context: viewContext)
             service.id = UUID()
             service.name = self.name
-            service.price = 100
-            service.cost = 10
+            service.price = self.price ?? 0
+            service.cost = self.cost ?? 0
             service.duration = Int16(self.serviceDurations[self.serviceDurationSelectedIndex].rawValue)
             try? self.viewContext.save()
         }
