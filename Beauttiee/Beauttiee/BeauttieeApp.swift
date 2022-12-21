@@ -13,8 +13,9 @@ struct BeauttieeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ServicesView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            AppointmentsDayTimelineBridgeView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+            //ServicesView()
+                //.environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

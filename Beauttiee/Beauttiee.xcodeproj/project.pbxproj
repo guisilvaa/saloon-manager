@@ -10,6 +10,9 @@
 		CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */; };
 		CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A532294A3BBD0007ADE1 /* CurrencyText */; };
 		CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */; };
+		CF33A538295342EE0007ADE1 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A537295342EE0007ADE1 /* CalendarKit */; };
+		CF33A53D295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */; };
+		CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
 		CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */; };
@@ -43,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineViewController.swift; sourceTree = "<group>"; };
+		CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineBridgeView.swift; sourceTree = "<group>"; };
 		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
 		CFFE16B4292D03A50030DD1D /* Beauttiee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauttiee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */,
+				CF33A538295342EE0007ADE1 /* CalendarKit in Frameworks */,
 				CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */,
 				CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */,
 			);
@@ -89,6 +95,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF33A53A2953756C0007ADE1 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				CF33A53E295376AD0007ADE1 /* View */,
+				CF33A53B2953757C0007ADE1 /* ViewController */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		CF33A53B2953757C0007ADE1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CF33A53E295376AD0007ADE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CF7EF85A29391FD400D1F237 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +167,7 @@
 		CFFE16B6292D03A50030DD1D /* Beauttiee */ = {
 			isa = PBXGroup;
 			children = (
+				CF33A53A2953756C0007ADE1 /* Appointment */,
 				CFFE16EE292D6DFC0030DD1D /* Extensions */,
 				CFFE16EB292D6D3A0030DD1D /* Commons */,
 				CFFE16E6292D33550030DD1D /* Service */,
@@ -235,6 +267,7 @@
 				CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */,
 				CF33A532294A3BBD0007ADE1 /* CurrencyText */,
 				CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */,
+				CF33A537295342EE0007ADE1 /* CalendarKit */,
 			);
 			productName = Beauttiee;
 			productReference = CFFE16B4292D03A50030DD1D /* Beauttiee.app */;
@@ -310,6 +343,7 @@
 			mainGroup = CFFE16AB292D03A50030DD1D;
 			packageReferences = (
 				CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */,
+				CF33A536295342EE0007ADE1 /* XCRemoteSwiftPackageReference "CalendarKit" */,
 			);
 			productRefGroup = CFFE16B5292D03A50030DD1D /* Products */;
 			projectDirPath = "";
@@ -356,11 +390,13 @@
 				CFFE16EA292D342B0030DD1D /* ServicesView.swift in Sources */,
 				CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */,
 				CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */,
+				CF33A53D295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift in Sources */,
 				CFFE16F0292D6E130030DD1D /* ViewExtension.swift in Sources */,
 				CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */,
 				CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */,
 				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
 				CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */,
+				CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,6 +731,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		CF33A536295342EE0007ADE1 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -712,6 +756,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */;
 			productName = CurrencyTextSwiftUI;
+		};
+		CF33A537295342EE0007ADE1 /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF33A536295342EE0007ADE1 /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
