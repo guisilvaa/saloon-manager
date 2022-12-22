@@ -7,128 +7,84 @@
 
 import UIKit
 import CalendarKit
+import CoreData
 
 class AppointmentsDayTimelineViewController: DayViewController {
+    
+    var viewContext: NSManagedObjectContext!
+    
+    private let timeZone = TimeZone(identifier: "America/Sao_Paulo")!
 
-    var data = [["Breakfast at Tiffany's",
-                   "New York, 5th avenue"],
-                  
-                  ["Workout",
-                   "Tufteparken"],
-                  
-                  ["Meeting with Alex",
-                   "Home",
-                   "Oslo, Tjuvholmen"],
-                  
-                  ["Beach Volleyball",
-                   "Ipanema Beach",
-                   "Rio De Janeiro"],
-                  
-                  ["WWDC",
-                   "Moscone West Convention Center",
-                   "747 Howard St"],
-                  
-                  ["Google I/O",
-                   "Shoreline Amphitheatre",
-                   "One Amphitheatre Parkway"],
-                  
-                  ["✈️️ to Svalbard ❄️️❄️️❄️️❤️️",
-                   "Oslo Gardermoen"],
-                  
-                  ["💻📲 Developing CalendarKit",
-                   "🌍 Worldwide"],
-                  
-                  ["Software Development Lecture",
-                   "Mikpoli MB310",
-                   "Craig Federighi"],
-                  
-      ]
-      
-      var generatedEvents = [EventDescriptor]()
-      var alreadyGeneratedSet = Set<Date>()
-      
-      var colors = [UIColor.blue,
-                    UIColor.yellow,
-                    UIColor.green,
-                    UIColor.red]
-
-      private lazy var dateIntervalFormatter: DateIntervalFormatter = {
-        let dateIntervalFormatter = DateIntervalFormatter()
-        dateIntervalFormatter.dateStyle = .none
-        dateIntervalFormatter.timeStyle = .short
-
-        return dateIntervalFormatter
-      }()
-
-      override func loadView() {
-        calendar.timeZone = TimeZone(identifier: "America/Sao_Paulo")!
+    override func loadView() {
+        calendar.timeZone = self.timeZone
 
         dayView = DayView(calendar: calendar)
         view = dayView
-      }
-      
-      override func viewDidLoad() {
+    }
+
+    override func viewDidLoad() {
         super.viewDidLoad()
-        title = "CalendarKit Demo"
+        title = "Agenda"
         navigationController?.navigationBar.isTranslucent = false
         dayView.autoScrollToFirstEvent = true
         reloadData()
-      }
+    }
+    
+    private func predicateForDayUsingDate(_ date: Date) -> NSPredicate {
+        var calendar = Calendar.current
+        calendar.timeZone = self.timeZone
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        let endOfDayLessOneSecond = endOfDay.addingTimeInterval(TimeInterval(-1))
+        
+        return NSPredicate(format: "startDate >= %@ AND endDate <= %@", argumentArray: [startOfDay, endOfDayLessOneSecond])
+    }
       
       // MARK: EventDataSource
       
-      override func eventsForDate(_ date: Date) -> [EventDescriptor] {
-        if !alreadyGeneratedSet.contains(date) {
-          alreadyGeneratedSet.insert(date)
-          generatedEvents.append(contentsOf: generateEventsForDate(date))
-        }
-        return generatedEvents
-      }
-      
-      private func generateEventsForDate(_ date: Date) -> [EventDescriptor] {
-        var workingDate = Calendar.current.date(byAdding: .hour, value: Int.random(in: 1...15), to: date)!
-        var events = [Event]()
+    override func eventsForDate(_ date: Date) -> [EventDescriptor] {
+        var events: [Event] = []
+        var fetchRequest: NSFetchRequest<Appointment> = Appointment.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Appointment.startDate, ascending: true)]
+        fetchRequest.predicate = predicateForDayUsingDate(date)
+        var results = try? viewContext.fetch(fetchRequest)
         
-        for i in 0...4 {
-          let event = Event()
-
-          let duration = Int.random(in: 60 ... 160)
-          event.dateInterval = DateInterval(start: workingDate, duration: TimeInterval(duration * 60))
-
-          var info = data.randomElement() ?? []
-          
-          let timezone = dayView.calendar.timeZone
-          print(timezone)
-
-          info.append(dateIntervalFormatter.string(from: event.dateInterval.start, to: event.dateInterval.end))
-          event.text = info.reduce("", {$0 + $1 + "\n"})
-          event.color = colors.randomElement() ?? .red
-          event.isAllDay = Bool.random()
-          event.lineBreakMode = .byTruncatingTail
-
-          events.append(event)
-          
-          let nextOffset = Int.random(in: 40 ... 250)
-          workingDate = Calendar.current.date(byAdding: .minute, value: nextOffset, to: workingDate)!
-          event.userInfo = String(i)
+        if let results = results {
+            if results.isEmpty {
+                let event = Event()
+                event.isAllDay = true
+                event.text = "Nenhuma cliente marcada!"
+                event.color = .lightGray
+                event.lineBreakMode = .byTruncatingTail
+                events.append(event)
+            } else {
+                results.forEach { appointment in
+                    let event = Event()
+                    event.userInfo = appointment
+                    event.text = "\(appointment.client ?? "")\n\(appointment.serviceName ?? "")" //TODO formatar texto com inicio - fim
+                    event.dateInterval = DateInterval(start: appointment.startDate ?? Date(), end: appointment.endDate ?? Date())
+                    event.color = .purple
+                    event.lineBreakMode = .byTruncatingTail
+                    events.append(event)
+                }
+            }
         }
-
-        print("Events for \(date)")
+        
         return events
-      }
+    }
       
-      // MARK: DayViewDelegate
-      
-      private var createdEvent: EventDescriptor?
-      
-      override func dayViewDidSelectEventView(_ eventView: EventView) {
+    // MARK: DayViewDelegate
+
+    private var createdEvent: EventDescriptor?
+
+    override func dayViewDidSelectEventView(_ eventView: EventView) {
         guard let descriptor = eventView.descriptor as? Event else {
           return
         }
         print("Event has been selected: \(descriptor) \(String(describing: descriptor.userInfo))")
-      }
-      
-      override func dayViewDidLongPressEventView(_ eventView: EventView) {
+    }
+
+    override func dayViewDidLongPressEventView(_ eventView: EventView) {
         guard let descriptor = eventView.descriptor as? Event else {
           return
         }
@@ -136,70 +92,34 @@ class AppointmentsDayTimelineViewController: DayViewController {
         print("Event has been longPressed: \(descriptor) \(String(describing: descriptor.userInfo))")
         beginEditing(event: descriptor, animated: true)
         print(Date())
-      }
-      
-      override func dayView(dayView: DayView, didTapTimelineAt date: Date) {
+    }
+
+    override func dayView(dayView: DayView, didTapTimelineAt date: Date) {
         endEventEditing()
         print("Did Tap at date: \(date)")
-      }
-      
-      override func dayViewDidBeginDragging(dayView: DayView) {
+    }
+
+    override func dayViewDidBeginDragging(dayView: DayView) {
         endEventEditing()
         print("DayView did begin dragging")
-      }
-      
-      override func dayView(dayView: DayView, willMoveTo date: Date) {
+    }
+
+    override func dayView(dayView: DayView, willMoveTo date: Date) {
         print("DayView = \(dayView) will move to: \(date)")
-      }
-      
-      override func dayView(dayView: DayView, didMoveTo date: Date) {
+    }
+
+    override func dayView(dayView: DayView, didMoveTo date: Date) {
         print("DayView = \(dayView) did move to: \(date)")
-      }
-      
-      override func dayView(dayView: DayView, didLongPressTimelineAt date: Date) {
+    }
+
+    override func dayView(dayView: DayView, didLongPressTimelineAt date: Date) {
         print("Did long press timeline at date \(date)")
-        // Cancel editing current event and start creating a new one
-        endEventEditing()
-        let event = generateEventNearDate(date)
-        print("Creating a new event")
-        create(event: event, animated: true)
-        createdEvent = event
-      }
-      
-      private func generateEventNearDate(_ date: Date) -> EventDescriptor {
-        let duration = (60...220).randomElement()!
-        let startDate = Calendar.current.date(byAdding: .minute, value: -Int(CGFloat(duration) / 2), to: date)!
-        let event = Event()
-        
-        event.dateInterval = DateInterval(start: startDate, duration: TimeInterval(duration * 60))
-        
-        var info = data.randomElement()!
+    }
 
-        info.append(dateIntervalFormatter.string(from: event.dateInterval)!)
-        event.text = info.reduce("", {$0 + $1 + "\n"})
-        event.color = colors.randomElement()!
-        event.editedEvent = event
-
-        return event
-      }
-      
-      override func dayView(dayView: DayView, didUpdate event: EventDescriptor) {
+    override func dayView(dayView: DayView, didUpdate event: EventDescriptor) {
         print("did finish editing \(event)")
         print("new startDate: \(event.dateInterval.start) new endDate: \(event.dateInterval.end)")
-        
-        if let _ = event.editedEvent {
-          event.commitEditing()
-        }
-        
-        if let createdEvent = createdEvent {
-          createdEvent.editedEvent = nil
-          generatedEvents.append(createdEvent)
-          self.createdEvent = nil
-          endEventEditing()
-        }
-        
-        reloadData()
-      }
+    }
     
 
     /*

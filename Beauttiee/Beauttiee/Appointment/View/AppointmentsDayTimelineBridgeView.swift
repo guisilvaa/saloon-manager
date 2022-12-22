@@ -9,10 +9,14 @@ import Foundation
 import SwiftUI
 
 struct AppointmentsDayTimelineBridgeView: UIViewControllerRepresentable {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context){
     }
     
     func makeUIViewController(context: Context) -> UIViewController {
-        return AppointmentsDayTimelineViewController()
+        let viewController = AppointmentsDayTimelineViewController()
+        viewController.viewContext = self.viewContext
+        return UINavigationController(rootViewController: viewController)
     }
 }
