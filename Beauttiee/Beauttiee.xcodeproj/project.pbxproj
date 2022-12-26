@@ -14,6 +14,7 @@
 		CF33A53D295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */; };
 		CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */; };
 		CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */; };
+		CF33A545295A33E90007ADE1 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A544295A33E90007ADE1 /* MainTabBarView.swift */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
 		CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */; };
@@ -50,6 +51,7 @@
 		CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineViewController.swift; sourceTree = "<group>"; };
 		CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineBridgeView.swift; sourceTree = "<group>"; };
 		CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
+		CF33A544295A33E90007ADE1 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
 		CFFE16B4292D03A50030DD1D /* Beauttiee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauttiee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 				CFFE16C0292D03A50030DD1D /* Persistence.swift */,
 				CFFE16C2292D03A50030DD1D /* Beauttiee.xcdatamodeld */,
 				CFFE16BD292D03A50030DD1D /* Preview Content */,
+				CF33A544295A33E90007ADE1 /* MainTabBarView.swift */,
 			);
 			path = Beauttiee;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				CFFE16F0292D6E130030DD1D /* ViewExtension.swift in Sources */,
 				CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */,
 				CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */,
+				CF33A545295A33E90007ADE1 /* MainTabBarView.swift in Sources */,
 				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
 				CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */,
 				CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */,
@@ -582,6 +586,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Beauttiee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -611,6 +618,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Beauttiee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

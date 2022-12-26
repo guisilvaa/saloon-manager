@@ -12,6 +12,7 @@ import CurrencyFormatter
 struct ServiceDetailView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.dismiss) var dismiss
     
     @State var name: String = ""
     @State var price: Double? = 0.0
@@ -79,6 +80,8 @@ struct ServiceDetailView: View {
             service.cost = self.cost ?? 0
             service.duration = Int16(self.serviceDurations[self.serviceDurationSelectedIndex].rawValue)
             try? self.viewContext.save()
+            
+            dismiss()
         }
     }
 }

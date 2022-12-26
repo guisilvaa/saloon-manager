@@ -17,6 +17,8 @@ struct ServicesView: View {
         animation: .default)
     private var services: FetchedResults<Service>
     
+    @State var toolbarLinkSelected = false
+    
     var body: some View {
         NavigationView{
             List {
@@ -36,13 +38,9 @@ struct ServicesView: View {
             }
             .navigationTitle("Serviços")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem {
-                    Button(action: navigateToAddItem) {
-                        Label("Adicionar", systemImage: "plus")
-                    }
-                }
-            }
+            .navigationBarItems(trailing: NavigationLink(destination: ServiceDetailView().environment(\.managedObjectContext, viewContext)) {
+                Label("Adicionar", systemImage: "plus")
+            })
         }
     }
     
