@@ -13,6 +13,7 @@
 		CF33A538295342EE0007ADE1 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A537295342EE0007ADE1 /* CalendarKit */; };
 		CF33A53D295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */; };
 		CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */; };
+		CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
 		CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineViewController.swift; sourceTree = "<group>"; };
 		CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineBridgeView.swift; sourceTree = "<group>"; };
+		CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
 		CFFE16B4292D03A50030DD1D /* Beauttiee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauttiee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,9 +117,18 @@
 		CF33A53E295376AD0007ADE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF33A541295A19DB0007ADE1 /* Detail */,
 				CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CF33A541295A19DB0007ADE1 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		CF7EF85A29391FD400D1F237 /* Detail */ = {
@@ -396,6 +407,7 @@
 				CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */,
 				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
 				CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */,
+				CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */,
 				CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

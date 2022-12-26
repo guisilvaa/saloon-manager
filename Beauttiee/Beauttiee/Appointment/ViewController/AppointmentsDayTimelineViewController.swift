@@ -8,6 +8,7 @@
 import UIKit
 import CalendarKit
 import CoreData
+import SwiftUI
 
 class AppointmentsDayTimelineViewController: DayViewController {
     
@@ -25,9 +26,16 @@ class AppointmentsDayTimelineViewController: DayViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Agenda"
-        navigationController?.navigationBar.isTranslucent = false
         dayView.autoScrollToFirstEvent = true
         reloadData()
+        
+        let rightBarButton = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(onAddApointmentClicked))
+        self.navigationItem.setRightBarButton(rightBarButton, animated: true)
+    }
+    
+    @objc func onAddApointmentClicked() {
+        let hostingController = UIHostingController(rootView: AppointmentDetailView().environment(\.managedObjectContext, viewContext))
+        navigationController?.pushViewController(hostingController, animated: true)
     }
     
     private func predicateForDayUsingDate(_ date: Date) -> NSPredicate {
