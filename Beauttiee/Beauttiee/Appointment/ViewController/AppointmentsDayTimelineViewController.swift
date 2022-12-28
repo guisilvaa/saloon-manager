@@ -34,7 +34,11 @@ class AppointmentsDayTimelineViewController: DayViewController {
     }
     
     @objc func onAddApointmentClicked() {
-        let hostingController = UIHostingController(rootView: AppointmentDetailView().environment(\.managedObjectContext, viewContext))
+        var appointmentView = AppointmentDetailView()
+        appointmentView.onNewAppoitment = {
+            self.reloadData()
+        }
+        let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
         navigationController?.pushViewController(hostingController, animated: true)
     }
     
@@ -52,10 +56,10 @@ class AppointmentsDayTimelineViewController: DayViewController {
       
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         var events: [Event] = []
-        var fetchRequest: NSFetchRequest<Appointment> = Appointment.fetchRequest()
+        let fetchRequest: NSFetchRequest<Appointment> = Appointment.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Appointment.startDate, ascending: true)]
         fetchRequest.predicate = predicateForDayUsingDate(date)
-        var results = try? viewContext.fetch(fetchRequest)
+        let results = try? viewContext.fetch(fetchRequest)
         
         if let results = results {
             if results.isEmpty {
