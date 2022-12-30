@@ -51,6 +51,15 @@ class AppointmentsDayTimelineViewController: DayViewController {
         
         return NSPredicate(format: "startDate >= %@ AND endDate <= %@", argumentArray: [startOfDay, endOfDayLessOneSecond])
     }
+    
+    private func navigateToAppointmentDetail(_ appointment: Appointment) {
+        var appointmentView = AppointmentDetailView(appointment: appointment)
+        appointmentView.onAppointmentChanged = {
+            self.reloadData()
+        }
+        let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
+        navigationController?.pushViewController(hostingController, animated: true)
+    }
       
       // MARK: EventDataSource
       
@@ -90,10 +99,10 @@ class AppointmentsDayTimelineViewController: DayViewController {
     private var createdEvent: EventDescriptor?
 
     override func dayViewDidSelectEventView(_ eventView: EventView) {
-        guard let descriptor = eventView.descriptor as? Event else {
-          return
+        if let descriptor = eventView.descriptor as? Event,
+           let appointment = descriptor.userInfo as? Appointment {
+            navigateToAppointmentDetail(appointment)
         }
-        print("Event has been selected: \(descriptor) \(String(describing: descriptor.userInfo))")
     }
 
     override func dayViewDidLongPressEventView(_ eventView: EventView) {

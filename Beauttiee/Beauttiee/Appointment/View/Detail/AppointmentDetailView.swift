@@ -14,28 +14,30 @@ struct AppointmentDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
     
-    @State var client: String = ""
+    @ObservedObject var appointment: Appointment
+    
     @State var price: Double? = 0.0
     @State var priceText: String = "R$ 0,00"
     @State var startDate = Date.now
     @State var endDate = Date.now
+    @State var obs: String = ""
     @State private var currencyFormatter = CurrencyFormatter.init {
         $0.currency = .brazilianReal
         $0.locale = CurrencyLocale.portugueseBrazil
     }
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Service.name, ascending: true)],
-        animation: .default)
-    private var services: FetchedResults<Service>
-    @State private var service: Service?
-    
+    private let paymentTypes = PaymentType.allCases
+    @State private var paymentType: PaymentType?
     
     private let timeZone = TimeZone(identifier: "America/Sao_Paulo")!
     private var calendar = Calendar.current
     
-    var onNewAppoitment: (() -> Void)?
+    var onAppointmentChanged: (() -> Void)?
     
-    init() {
+    private var client: String { self.appointment.client ?? "" }
+    private var service: String { self.appointment.serviceName ?? "" }
+    
+    init(appointment: Appointment) {
+        self.appointment = appointment
         calendar.timeZone = self.timeZone
     }
     
@@ -44,19 +46,8 @@ struct AppointmentDetailView: View {
             VStack {
                 Form {
                     Section {
-                        Picker("Serviço", selection: $service) {
-                            Text(" ").tag(nil as Service?)
-                            ForEach(services) { s in
-                                Text(s.name ?? "")
-                                    .tag(s as Service?)
-                            }
-                        }.onChange(of: service) { newValue in
-                            if let service = newValue {
-                                price = service.price
-                                priceText = currencyFormatter.string(from: service.price) ?? ""
-                                calculateEndDate()
-                            }
-                        }
+                        Text(client)
+                        Text(service) //TODO colocar duracao
                     }
                     Section("Valor") {
                         CurrencyTextField(
@@ -65,23 +56,28 @@ struct AppointmentDetailView: View {
                                                                           inputAmount: $price,
                                                                           formatter: $currencyFormatter,
                                                                           textFieldConfiguration: nil))
-                    }
-                    Section("Cliente") {
-                        TextField("Informe o nome", text: $client)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        Picker("Forma de pagamento", selection: $paymentType) {
+                            Text(" ").tag(nil as PaymentType?)
+                            ForEach(paymentTypes, id: \.self) { s in
+                                Text(s.description)
+                                    .tag(s as PaymentType?)
+                            }
+                        }
                     }
                     Section("Data do atendimento") {
-                        DatePicker(selection: $startDate, in: Date.now..., displayedComponents: .date) {
-                            Text("Selecione o dia")
+                        DatePicker(selection: $startDate, displayedComponents: .date) {
+                            Text("Dia")
                         }
                         DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
                             Text("Início")
-                        }.onChange(of: startDate) { _ in
-                            calculateEndDate()
                         }
                         DatePicker(selection: $endDate, displayedComponents: .hourAndMinute) {
                             Text("Fim")
                         }
+                    }
+                    Section("Observação") {
+                        TextField("Informe a observação", text: $obs)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                 }
                 Button(action: save) {
@@ -92,33 +88,36 @@ struct AppointmentDetailView: View {
                 .controlSize(.large)
                 .padding(20)
             }
-            .navigationTitle("Novo atendimento")
+            .navigationTitle("Detalhes")
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-    
-    private func calculateEndDate() {
-        if let service = service,
-           let serviceDuration = ServiceDuration(rawValue: Int(service.duration)) {
-            self.endDate = calendar.date(byAdding: .minute, value: serviceDuration.rawValue, to: startDate)!
+        .onAppear {
+            self.price = self.appointment.price
+            self.priceText = currencyFormatter.string(from: self.appointment.price) ?? ""
+            self.obs = self.appointment.observation ?? ""
+            self.startDate = self.appointment.startDate ?? Date.now
+            self.endDate = self.appointment.endDate ?? Date.now
+            if self.appointment.paymentType > 0 {
+                self.paymentType = PaymentType(rawValue: Int(self.appointment.paymentType))
+            }
         }
     }
     
     private func save() {
         withAnimation { //TODO tratamento mesmo horario(horario ja ocupado)
-            let appointment = Appointment(context: viewContext)
-            appointment.id = UUID()
-            appointment.startDate = startDate
-            appointment.endDate = endDate
-            appointment.price = price ?? 0
-            appointment.serviceName = service?.name
-            appointment.client = client
+            self.appointment.startDate = startDate
+            self.appointment.endDate = endDate
+            self.appointment.price = price ?? 0
+            self.appointment.observation = obs
+            if let paymentType = paymentType {
+                self.appointment.paymentType = Int16(paymentType.rawValue)
+            }
             try? self.viewContext.save()
             
             dismiss()
             
-            if let onNewAppoitment = self.onNewAppoitment {
-                onNewAppoitment()
+            if let onAppointmentChanged = self.onAppointmentChanged {
+                onAppointmentChanged()
             }
         }
     }
@@ -126,6 +125,6 @@ struct AppointmentDetailView: View {
 
 struct AppointmentDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AppointmentDetailView()
+        AppointmentDetailView(appointment: Appointment())
     }
 }

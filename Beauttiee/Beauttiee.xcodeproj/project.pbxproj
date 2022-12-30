@@ -18,6 +18,7 @@
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
 		CFF78DD8295F516D00493FB3 /* NewAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF78DD7295F516D00493FB3 /* NewAppointmentView.swift */; };
+		CFF78DDB295F570000493FB3 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF78DDA295F570000493FB3 /* PaymentType.swift */; };
 		CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */; };
 		CFFE16BC292D03A50030DD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFE16BB292D03A50030DD1D /* Assets.xcassets */; };
 		CFFE16BF292D03A50030DD1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFE16BE292D03A50030DD1D /* Preview Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
 		CFF78DD7295F516D00493FB3 /* NewAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppointmentView.swift; sourceTree = "<group>"; };
+		CFF78DDA295F570000493FB3 /* PaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
 		CFFE16B4292D03A50030DD1D /* Beauttiee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauttiee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFE16B7292D03A50030DD1D /* BeauttieeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeauttieeApp.swift; sourceTree = "<group>"; };
 		CFFE16BB292D03A50030DD1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		CF33A53A2953756C0007ADE1 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
+				CFF78DD9295F56F000493FB3 /* Model */,
 				CF33A53E295376AD0007ADE1 /* View */,
 				CF33A53B2953757C0007ADE1 /* ViewController */,
 			);
@@ -166,6 +169,14 @@
 				CFF78DD7295F516D00493FB3 /* NewAppointmentView.swift */,
 			);
 			path = New;
+			sourceTree = "<group>";
+		};
+		CFF78DD9295F56F000493FB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFF78DDA295F570000493FB3 /* PaymentType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CFFE16AB292D03A50030DD1D = {
@@ -424,6 +435,7 @@
 				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
 				CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */,
 				CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */,
+				CFF78DDB295F570000493FB3 /* PaymentType.swift in Sources */,
 				CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
