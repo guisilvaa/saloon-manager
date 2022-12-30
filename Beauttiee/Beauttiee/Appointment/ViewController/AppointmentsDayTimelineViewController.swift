@@ -34,7 +34,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
     }
     
     @objc func onAddApointmentClicked() {
-        var appointmentView = AppointmentDetailView()
+        var appointmentView = NewAppointmentView()
         appointmentView.onNewAppoitment = {
             self.reloadData()
         }
