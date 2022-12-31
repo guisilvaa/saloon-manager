@@ -39,6 +39,7 @@ struct AppointmentDetailView: View {
     init(appointment: Appointment) {
         self.appointment = appointment
         calendar.timeZone = self.timeZone
+        _priceText = State(initialValue: currencyFormatter.string(from: self.appointment.price) ?? "")
     }
     
     var body: some View {
@@ -92,8 +93,6 @@ struct AppointmentDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
-            self.price = self.appointment.price
-            self.priceText = currencyFormatter.string(from: self.appointment.price) ?? ""
             self.obs = self.appointment.observation ?? ""
             self.startDate = self.appointment.startDate ?? Date.now
             self.endDate = self.appointment.endDate ?? Date.now
