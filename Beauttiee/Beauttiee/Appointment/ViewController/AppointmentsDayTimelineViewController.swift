@@ -20,6 +20,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
         calendar.timeZone = self.timeZone
 
         dayView = DayView(calendar: calendar)
+        dayView.updateStyle(calendarStyle())
         view = dayView
     }
 
@@ -60,6 +61,37 @@ class AppointmentsDayTimelineViewController: DayViewController {
         let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
         navigationController?.present(hostingController, animated: true)
     }
+    
+    private func appointmentInfo(_ appointment: Appointment) -> NSAttributedString {
+        let hourFormatter = DateFormatter()
+        hourFormatter.dateFormat = "HH:mm"
+        let startTime = hourFormatter.string(from: appointment.startDate ?? Date.now)
+        let endTime = hourFormatter.string(from: appointment.endDate ?? Date.now)
+        let title = "\(appointment.client ?? "") - \(appointment.serviceName ?? "")\n"
+        let hourInterval = "\(startTime) - \(endTime)"
+        let textAttributesOne = [NSAttributedString.Key.foregroundColor: UIColor(Color("greyDark")),
+                                 NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+        let textAttributesTwo = [NSAttributedString.Key.foregroundColor: UIColor(Color("greyDark")),
+                                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
+        let textPartOne = NSMutableAttributedString(string: title, attributes: textAttributesOne)
+        let textPartTwo = NSMutableAttributedString(string: hourInterval, attributes: textAttributesTwo)
+        let textCombination = NSMutableAttributedString()
+        textCombination.append(textPartOne)
+        textCombination.append(textPartTwo)
+        
+        return textCombination
+    }
+    
+    private func calendarStyle() -> CalendarStyle {
+        var style = CalendarStyle()
+        style.header.daySelector.selectedBackgroundColor = UIColor(Color("pinkLight"))
+        style.header.daySelector.activeTextColor = UIColor(Color("greyMedium"))
+        style.header.daySelector.todayInactiveTextColor = UIColor(Color("pinkDark"))
+        style.header.daySelector.todayActiveTextColor = UIColor(Color("greyLight"))
+        style.header.daySelector.todayActiveBackgroundColor = UIColor(Color("pinkDark"))
+        
+        return style
+    }
       
       // MARK: EventDataSource
       
@@ -82,9 +114,9 @@ class AppointmentsDayTimelineViewController: DayViewController {
                 results.forEach { appointment in
                     let event = Event()
                     event.userInfo = appointment
-                    event.text = "\(appointment.client ?? "")\n\(appointment.serviceName ?? "")" //TODO formatar texto com inicio - fim
+                    event.attributedText = appointmentInfo(appointment)
                     event.dateInterval = DateInterval(start: appointment.startDate ?? Date(), end: appointment.endDate ?? Date())
-                    event.color = .purple
+                    event.color = UIColor(Color("pinkDark"))
                     event.lineBreakMode = .byTruncatingTail
                     events.append(event)
                 }
