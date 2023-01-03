@@ -46,7 +46,7 @@ struct AppointmentDetailView: View {
         NavigationView{
             VStack {
                 Form {
-                    Section {
+                    Section("Cliente") {
                         Text(client)
                         Text(service) //TODO colocar duracao
                     }
@@ -78,19 +78,23 @@ struct AppointmentDetailView: View {
                     }
                     Section("Observação") {
                         TextField("Informe a observação", text: $obs)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                 }
+                .scrollContentBackground(.hidden)
+                .foregroundColor(Color("greyDark"))
+                
                 Button(action: save) {
                     Text("Salvar")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(Color("pinkDark"))
                 .controlSize(.large)
                 .padding(20)
             }
             .navigationTitle("Detalhes")
             .navigationBarTitleDisplayMode(.inline)
+            .background(Color("greyLight"))
         }
         .onAppear {
             self.obs = self.appointment.observation ?? ""
