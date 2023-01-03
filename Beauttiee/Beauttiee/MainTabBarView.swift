@@ -17,16 +17,17 @@ struct MainTabBarView: View {
                 AppointmentsDayTimelineBridgeView()
                     .environment(\.managedObjectContext, viewContext)
                     .tabItem {
-                        Image(systemName: "phone.fill")
+                        Image(systemName: "calendar")
                         Text("Agenda")
                     }
                 ServicesView()
                     .environment(\.managedObjectContext, viewContext)
                     .tabItem {
-                        Image(systemName: "tv.fill")
+                        Image(systemName: "list.bullet.clipboard")
                         Text("Serviços")
                     }
             }
+            .toolbarColorScheme(.light, for: .tabBar)
         }
     }
 }

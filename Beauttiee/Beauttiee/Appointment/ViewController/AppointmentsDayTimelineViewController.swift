@@ -30,7 +30,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
         dayView.autoScrollToFirstEvent = true
         reloadData()
         
-        let rightBarButton = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(onAddApointmentClicked))
+        let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(onAddApointmentClicked))
         self.navigationItem.setRightBarButton(rightBarButton, animated: true)
     }
     
