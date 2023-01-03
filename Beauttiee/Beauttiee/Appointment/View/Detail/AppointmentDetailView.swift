@@ -79,18 +79,38 @@ struct AppointmentDetailView: View {
                     Section("Observação") {
                         TextField("Informe a observação", text: $obs)
                     }
+                    Section {
+                    } footer: {
+                        VStack(spacing: 15) {
+                            Button(action: delete) {
+                                Text("Apagar")
+                                    .foregroundColor(Color("pinkDark"))
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color("pinkDark"), lineWidth: 1)
+                                    )
+                            }
+                            .tint(Color("pinkDark"))
+                            .controlSize(.large)
+                            
+                            Button(action: save) {
+                                Text("Salvar")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .foregroundColor(.white)
+                            .tint(Color("pinkDark"))
+                            .controlSize(.large)
+                            .padding(.bottom, 20)
+                        }
+                        .listRowInsets(EdgeInsets())
+                    }
+
                 }
                 .scrollContentBackground(.hidden)
                 .foregroundColor(Color("greyDark"))
-                
-                Button(action: save) {
-                    Text("Salvar")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Color("pinkDark"))
-                .controlSize(.large)
-                .padding(20)
             }
             .navigationTitle("Detalhes")
             .navigationBarTitleDisplayMode(.inline)
@@ -115,13 +135,23 @@ struct AppointmentDetailView: View {
             if let paymentType = paymentType {
                 self.appointment.paymentType = Int16(paymentType.rawValue)
             }
-            try? self.viewContext.save()
             
-            dismiss()
-            
-            if let onAppointmentChanged = self.onAppointmentChanged {
-                onAppointmentChanged()
-            }
+            appointmentChanged()
+        }
+    }
+    
+    private func delete() {
+        viewContext.delete(appointment)
+        appointmentChanged()
+    }
+    
+    private func appointmentChanged() {
+        try? self.viewContext.save()
+        
+        dismiss()
+        
+        if let onAppointmentChanged = self.onAppointmentChanged {
+            onAppointmentChanged()
         }
     }
 }
