@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import CurrencyFormatter
 
 struct ServicesView: View {
     
@@ -17,8 +18,6 @@ struct ServicesView: View {
         animation: .default)
     private var services: FetchedResults<Service>
     
-    @State var toolbarLinkSelected = false
-    
     var body: some View {
         NavigationView{
             List {
@@ -27,26 +26,27 @@ struct ServicesView: View {
                 }
                 .onDelete(perform: delete)
             }
-            .emptyView(services.isEmpty) {
+            .background(Color("greyLight"))
+            .scrollContentBackground(.hidden)
+            .listRowSeparator(.hidden)
+            .listRowSeparatorTint(Color("pinkLight"))
+            .emptyView(!services.isEmpty) {
                 NavigationLink(destination: ServiceDetailView().environment(\.managedObjectContext, viewContext)) {
                     VStack {
                         Image(systemName: "plus.circle")
+                            .font(.system(size: 60))
                         Text("Nenhum serviço cadastrado!")
+                            .font(.title2)
                         Text("Clique para adicionar")
+                            .font(.title2)
                     }
                 }
             }
             .navigationTitle("Serviços")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: NavigationLink(destination: ServiceDetailView().environment(\.managedObjectContext, viewContext)) {
-                Label("Adicionar", systemImage: "plus")
+                    Label("Adicionar", systemImage: "plus")
             })
-        }
-    }
-    
-    private func navigateToAddItem() {
-        withAnimation {
-            
         }
     }
     
@@ -62,12 +62,24 @@ struct ServiceItemView: View {
     
     @ObservedObject var service: Service
     
+    var currencyFormatter = CurrencyFormatter.init {
+        $0.currency = .brazilianReal
+        $0.locale = CurrencyLocale.portugueseBrazil
+    }
+    
+    var price: String { currencyFormatter.string(from: self.service.price) ?? "" }
+    
+    var duration: String { ServiceDuration(rawValue: Int(service.duration))?.description ?? "" }
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(service.name ?? "")
-                .font(.title)
+                .font(.title2)
                 .bold()
-            Text("\(service.price)")
+            .   foregroundColor(Color("pinkDark"))
+            
+            Text("\(price) - \(duration)")
+                .foregroundColor(Color("greyDark"))
         }
         .padding(10)
         .lineLimit(1)
