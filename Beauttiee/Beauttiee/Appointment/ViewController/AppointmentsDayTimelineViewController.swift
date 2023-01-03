@@ -112,10 +112,12 @@ class AppointmentsDayTimelineViewController: DayViewController {
                 events.append(event)
             } else {
                 results.forEach { appointment in
+                    let endDate = appointment.endDate ?? Date()
+                    let eventEnd = calendar.date(byAdding: .minute, value: -1, to: endDate)!
                     let event = Event()
                     event.userInfo = appointment
                     event.attributedText = appointmentInfo(appointment)
-                    event.dateInterval = DateInterval(start: appointment.startDate ?? Date(), end: appointment.endDate ?? Date())
+                    event.dateInterval = DateInterval(start: appointment.startDate ?? Date(), end: eventEnd)
                     event.color = UIColor(Color("pinkDark"))
                     event.lineBreakMode = .byTruncatingTail
                     events.append(event)
