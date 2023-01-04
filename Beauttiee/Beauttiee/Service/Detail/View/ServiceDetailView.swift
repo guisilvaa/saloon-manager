@@ -23,41 +23,41 @@ struct ServiceDetailView: View {
         $0.currency = .brazilianReal
         $0.locale = CurrencyLocale.portugueseBrazil
     }
-    @State private var serviceDurationSelectedIndex = 0
+    @State private var serviceDuration: ServiceDuration?
     private let serviceDurations = ServiceDuration.allCases
+    
+    init() {
+        _priceText = State(initialValue: currencyFormatter.string(from: 0) ?? "")
+    }
     
     var body: some View {
         NavigationView{
             VStack {
                 Form {
-                    Section {
-                        TextField("Nome", text: $name)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Section("Nome") {
+                        TextField("Informe o nome", text: $name)
                     }
-                    Section {
+                    Section("Preço") {
                         CurrencyTextField(
-                            configuration: CurrencyTextFieldConfiguration(placeholder: "Preço",
+                            configuration: CurrencyTextFieldConfiguration(placeholder: "Informe o preço",
                                                                           text: $priceText,
                                                                           inputAmount: $price,
                                                                           formatter: $currencyFormatter,
                                                                           textFieldConfiguration: nil))
                     }
                     Section {
-                        CurrencyTextField(
-                            configuration: CurrencyTextFieldConfiguration(placeholder: "Custo",
-                                                                          text: $costText,
-                                                                          inputAmount: $cost,
-                                                                          formatter: $currencyFormatter,
-                                                                          textFieldConfiguration: nil))
-                    }
-                    Section {
-                        Picker(selection: $serviceDurationSelectedIndex, label: Text("Duração")) {
-                            ForEach(0 ..< serviceDurations.count) {
-                                Text(self.serviceDurations[$0].description)
+                        Picker("Duração", selection: $serviceDuration) {
+                            Text(" ").tag(nil as ServiceDuration?)
+                            ForEach(serviceDurations, id: \.self) { duration in
+                                Text(duration.description)
+                                    .tag(duration as ServiceDuration?)
                             }
                         }
                     }
                 }
+                .scrollContentBackground(.hidden)
+                .foregroundColor(Color("greyDark"))
+                
                 Button(action: save) {
                     Text("Salvar")
                         .frame(maxWidth: .infinity)
@@ -68,6 +68,7 @@ struct ServiceDetailView: View {
             }
             .navigationTitle("Serviço")
             .navigationBarTitleDisplayMode(.inline)
+            .background(Color("greyLight"))
         }
     }
     
@@ -78,7 +79,10 @@ struct ServiceDetailView: View {
             service.name = self.name
             service.price = self.price ?? 0
             service.cost = self.cost ?? 0
-            service.duration = Int16(self.serviceDurations[self.serviceDurationSelectedIndex].rawValue)
+            if let serviceDuration = serviceDuration {
+                service.duration = Int16(serviceDuration.rawValue)
+            }
+            
             try? self.viewContext.save()
             
             dismiss()

@@ -18,6 +18,8 @@ struct ServicesView: View {
         animation: .default)
     private var services: FetchedResults<Service>
     
+    @State var showView = false
+    
     var body: some View {
         NavigationView{
             List {
@@ -30,8 +32,10 @@ struct ServicesView: View {
             .scrollContentBackground(.hidden)
             .listRowSeparator(.hidden)
             .listRowSeparatorTint(Color("pinkLight"))
-            .emptyView(!services.isEmpty) {
-                NavigationLink(destination: ServiceDetailView().environment(\.managedObjectContext, viewContext)) {
+            .emptyView(services.isEmpty) {
+                Button(action: {
+                    self.showView.toggle()
+                }, label: {
                     VStack {
                         Image(systemName: "plus.circle")
                             .font(.system(size: 60))
@@ -40,13 +44,18 @@ struct ServicesView: View {
                         Text("Clique para adicionar")
                             .font(.title2)
                     }
-                }
+                })
             }
             .navigationTitle("Serviços")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing: NavigationLink(destination: ServiceDetailView().environment(\.managedObjectContext, viewContext)) {
-                    Label("Adicionar", systemImage: "plus")
-            })
+            .navigationBarItems(trailing: Button(action: {
+                self.showView.toggle()
+            }, label: {
+                Label("Adicionar", systemImage: "plus")
+            }))
+            .sheet(isPresented: $showView) {
+                ServiceDetailView().environment(\.managedObjectContext, viewContext)
+            }
         }
     }
     
