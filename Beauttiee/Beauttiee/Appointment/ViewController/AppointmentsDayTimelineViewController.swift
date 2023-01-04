@@ -40,7 +40,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
             self.reloadData()
         }
         let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
-        navigationController?.pushViewController(hostingController, animated: true)
+        navigationController?.present(hostingController, animated: true)
     }
     
     private func predicateForDayUsingDate(_ date: Date) -> NSPredicate {

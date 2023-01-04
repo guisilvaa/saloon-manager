@@ -68,7 +68,6 @@ struct NewAppointmentView: View {
                     }
                     Section("Cliente") {
                         TextField("Informe o nome", text: $client)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     Section("Data do atendimento") {
                         DatePicker(selection: $startDate, in: Date.now..., displayedComponents: .date) {
@@ -84,6 +83,9 @@ struct NewAppointmentView: View {
                         }
                     }
                 }
+                .scrollContentBackground(.hidden)
+                .foregroundColor(Color("greyDark"))
+                
                 Button(action: save) {
                     Text("Agendar")
                         .frame(maxWidth: .infinity)
@@ -94,6 +96,7 @@ struct NewAppointmentView: View {
             }
             .navigationTitle("Novo atendimento")
             .navigationBarTitleDisplayMode(.inline)
+            .background(Color("greyLight"))
         }
     }
     
