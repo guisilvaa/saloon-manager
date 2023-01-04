@@ -54,7 +54,9 @@ struct ServicesView: View {
                 Label("Adicionar", systemImage: "plus")
             }))
             .sheet(isPresented: $showView) {
-                ServiceDetailView().environment(\.managedObjectContext, viewContext)
+                ServiceDetailView()
+                    .preferredColorScheme(.light)
+                    .environment(\.managedObjectContext, viewContext)
             }
         }
     }

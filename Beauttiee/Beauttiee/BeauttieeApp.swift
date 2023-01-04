@@ -15,6 +15,7 @@ struct BeauttieeApp: App {
         WindowGroup {
             MainTabBarView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.colorScheme, .light)
         }
     }
 }
