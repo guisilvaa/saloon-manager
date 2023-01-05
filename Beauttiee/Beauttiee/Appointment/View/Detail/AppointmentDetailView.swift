@@ -8,6 +8,7 @@
 import SwiftUI
 import CurrencyTextField
 import CurrencyFormatter
+import CoreData
 
 struct AppointmentDetailView: View {
     
@@ -28,13 +29,18 @@ struct AppointmentDetailView: View {
     private let paymentTypes = PaymentType.allCases
     @State private var paymentType: PaymentType?
     
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Service.name, ascending: true)],
+        animation: .default)
+    private var services: FetchedResults<Service>
+    @State private var service: Service?
+    
     private let timeZone = TimeZone(identifier: "America/Sao_Paulo")!
     private var calendar = Calendar.current
     
     var onAppointmentChanged: (() -> Void)?
     
     private var client: String { self.appointment.client ?? "" }
-    private var service: String { self.appointment.serviceName ?? "" }
     
     init(appointment: Appointment) {
         self.appointment = appointment
@@ -48,7 +54,24 @@ struct AppointmentDetailView: View {
                 Form {
                     Section("Cliente") {
                         Text(client)
-                        Text(service) //TODO colocar duracao
+                        
+                        if service != nil {
+                            Picker("Serviço", selection: $service) {
+                                ForEach(services) { s in
+                                    Text(s.name ?? "")
+                                        .tag(s as Service?)
+                                }
+                            }.onChange(of: service) { newValue in
+                                if let service = newValue {
+                                    price = service.price
+                                    priceText = currencyFormatter.string(from: service.price) ?? ""
+                                    calculateEndDate()
+                                }
+                            }
+                        } else {
+                            Text(self.appointment.serviceName ?? "")
+                        }
+                        
                     }
                     Section("Valor") {
                         CurrencyTextField(
@@ -71,6 +94,8 @@ struct AppointmentDetailView: View {
                         }
                         DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
                             Text("Início")
+                        }.onChange(of: startDate) { _ in
+                            calculateEndDate()
                         }
                         DatePicker(selection: $endDate, displayedComponents: .hourAndMinute) {
                             Text("Fim")
@@ -117,6 +142,7 @@ struct AppointmentDetailView: View {
             .background(Color("greyLight"))
         }
         .onAppear {
+            self.service = fetchService()
             self.obs = self.appointment.observation ?? ""
             self.startDate = self.appointment.startDate ?? Date.now
             self.endDate = self.appointment.endDate ?? Date.now
@@ -132,7 +158,12 @@ struct AppointmentDetailView: View {
             self.appointment.endDate = endDate
             self.appointment.price = price ?? 0
             self.appointment.observation = obs
-            if let paymentType = paymentType {
+            
+            if let service {
+                self.appointment.serviceName = service.name
+            }
+            
+            if let paymentType {
                 self.appointment.paymentType = Int16(paymentType.rawValue)
             }
             
@@ -153,6 +184,20 @@ struct AppointmentDetailView: View {
         if let onAppointmentChanged = self.onAppointmentChanged {
             onAppointmentChanged()
         }
+    }
+    
+    private func calculateEndDate() {
+        if let service = service,
+           let serviceDuration = ServiceDuration(rawValue: Int(service.duration)) {
+            self.endDate = calendar.date(byAdding: .minute, value: serviceDuration.rawValue, to: startDate)!
+        }
+    }
+    
+    private func fetchService() -> Service? {
+        let fetchRequest: NSFetchRequest<Service> = Service.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name = %@", argumentArray: [self.appointment.serviceName ?? ""])
+        let results = try? viewContext.fetch(fetchRequest)
+        return results?.first
     }
 }
 
