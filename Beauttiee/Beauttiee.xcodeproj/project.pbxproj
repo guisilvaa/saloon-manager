@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF1A016C296746C100472A68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1A016B296746C100472A68 /* Launch Screen.storyboard */; };
 		CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */; };
 		CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A532294A3BBD0007ADE1 /* CurrencyText */; };
 		CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF1A016A296744E400472A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CF1A016B296746C100472A68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineViewController.swift; sourceTree = "<group>"; };
 		CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineBridgeView.swift; sourceTree = "<group>"; };
 		CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
@@ -204,6 +207,7 @@
 		CFFE16B6292D03A50030DD1D /* Beauttiee */ = {
 			isa = PBXGroup;
 			children = (
+				CF1A016A296744E400472A68 /* Info.plist */,
 				CF33A53A2953756C0007ADE1 /* Appointment */,
 				CFFE16EE292D6DFC0030DD1D /* Extensions */,
 				CFFE16EB292D6D3A0030DD1D /* Commons */,
@@ -214,6 +218,7 @@
 				CFFE16C2292D03A50030DD1D /* Beauttiee.xcdatamodeld */,
 				CFFE16BD292D03A50030DD1D /* Preview Content */,
 				CF33A544295A33E90007ADE1 /* MainTabBarView.swift */,
+				CF1A016B296746C100472A68 /* Launch Screen.storyboard */,
 			);
 			path = Beauttiee;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1A016C296746C100472A68 /* Launch Screen.storyboard in Resources */,
 				CFFE16BF292D03A50030DD1D /* Preview Assets.xcassets in Resources */,
 				CFFE16BC292D03A50030DD1D /* Assets.xcassets in Resources */,
 			);
@@ -603,10 +609,11 @@
 				DEVELOPMENT_TEAM = 4ZL94F555A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Beauttiee/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Kelly Beauty";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -638,10 +645,11 @@
 				DEVELOPMENT_TEAM = 4ZL94F555A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Beauttiee/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Kelly Beauty";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
