@@ -15,6 +15,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
     var viewContext: NSManagedObjectContext!
     
     private let timeZone = TimeZone(identifier: "America/Sao_Paulo")!
+    private var currentDate = Date.now
 
     override func loadView() {
         calendar.timeZone = self.timeZone
@@ -32,15 +33,6 @@ class AppointmentsDayTimelineViewController: DayViewController {
         
         let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(onAddApointmentClicked))
         self.navigationItem.setRightBarButton(rightBarButton, animated: true)
-    }
-    
-    @objc func onAddApointmentClicked() {
-        var appointmentView = NewAppointmentView()
-        appointmentView.onNewAppoitment = {
-            self.reloadData()
-        }
-        let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
-        navigationController?.present(hostingController, animated: true)
     }
     
     private func predicateForDayUsingDate(_ date: Date) -> NSPredicate {
@@ -92,8 +84,23 @@ class AppointmentsDayTimelineViewController: DayViewController {
         
         return style
     }
+    
+    private func navigateToAddAppointment(hour: Date? = nil) {
+        var appointmentView = NewAppointmentView(date: self.currentDate, hour: hour)
+        appointmentView.onNewAppoitment = {
+            self.reloadData()
+        }
+        let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
+        navigationController?.present(hostingController, animated: true)
+    }
       
-      // MARK: EventDataSource
+    // MARK: Actions
+    
+    @objc func onAddApointmentClicked() {
+        navigateToAddAppointment()
+    }
+    
+    // MARK: EventDataSource
       
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         var events: [Event] = []
@@ -125,6 +132,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
             }
         }
         
+        self.currentDate = date
         return events
     }
       
@@ -151,7 +159,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
 
     override func dayView(dayView: DayView, didTapTimelineAt date: Date) {
         endEventEditing()
-        print("Did Tap at date: \(date)")
+        navigateToAddAppointment(hour: date)
     }
 
     override func dayViewDidBeginDragging(dayView: DayView) {

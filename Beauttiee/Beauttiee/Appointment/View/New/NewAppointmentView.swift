@@ -35,8 +35,22 @@ struct NewAppointmentView: View {
     
     var onNewAppoitment: (() -> Void)?
     
-    init() {
+    init(date: Date, hour: Date?) {
         calendar.timeZone = self.timeZone
+        var startDate = date
+        var endDate = date
+        let hourDate = hour ?? Date.now
+        let components = calendar.dateComponents([.hour, .minute, .second], from: hourDate)
+        startDate = calendar.date(bySettingHour: components.hour ?? 0,
+                                  minute: components.minute ?? 0,
+                                  second: 0,
+                                  of: startDate) ?? Date.now
+        endDate = calendar.date(bySettingHour: components.hour ?? 0,
+                                  minute: components.minute ?? 0,
+                                  second: 0,
+                                  of: endDate) ?? Date.now
+        _startDate = State(initialValue: startDate)
+        _endDate = State(initialValue: endDate)
     }
     
     var body: some View {
@@ -70,7 +84,7 @@ struct NewAppointmentView: View {
                         TextField("Informe o nome", text: $client)
                     }
                     Section("Data do atendimento") {
-                        DatePicker(selection: $startDate, in: Date.now..., displayedComponents: .date) {
+                        DatePicker(selection: $startDate, displayedComponents: .date) {
                             Text("Selecione o dia")
                         }
                         DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
@@ -129,6 +143,6 @@ struct NewAppointmentView: View {
 
 struct NewAppointmentView_Previews: PreviewProvider {
     static var previews: some View {
-        NewAppointmentView()
+        NewAppointmentView(date: Date.now, hour: nil)
     }
 }
