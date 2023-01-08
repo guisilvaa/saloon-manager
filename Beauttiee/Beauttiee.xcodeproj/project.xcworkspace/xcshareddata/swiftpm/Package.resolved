@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "calendarkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/richardtop/CalendarKit.git",
-      "state" : {
-        "revision" : "6c4536dd14c52e435c80810a66e36c9aa09307b3",
-        "version" : "1.1.6"
-      }
-    },
-    {
       "identity" : "currencytext",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marinofelipe/CurrencyText.git",

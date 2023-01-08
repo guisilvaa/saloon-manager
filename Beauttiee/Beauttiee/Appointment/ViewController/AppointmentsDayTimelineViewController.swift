@@ -9,6 +9,7 @@ import UIKit
 import CalendarKit
 import CoreData
 import SwiftUI
+import CurrencyFormatter
 
 class AppointmentsDayTimelineViewController: DayViewController {
     
@@ -16,6 +17,11 @@ class AppointmentsDayTimelineViewController: DayViewController {
     
     private let timeZone = TimeZone(identifier: "America/Sao_Paulo")!
     private var currentDate = Date.now
+    
+    private var currencyFormatter = CurrencyFormatter.init {
+        $0.currency = .brazilianReal
+        $0.locale = CurrencyLocale.portugueseBrazil
+    }
 
     override func loadView() {
         calendar.timeZone = self.timeZone
@@ -81,6 +87,9 @@ class AppointmentsDayTimelineViewController: DayViewController {
         style.header.daySelector.todayInactiveTextColor = UIColor(Color("pinkDark"))
         style.header.daySelector.todayActiveTextColor = UIColor(Color("greyLight"))
         style.header.daySelector.todayActiveBackgroundColor = UIColor(Color("pinkDark"))
+        style.timeline.allDayStyle.backgroundColor = UIColor(Color("pinkDark"))
+        style.timeline.allDayStyle.allDayFont = UIFont.boldSystemFont(ofSize: 14)
+        style.timeline.allDayStyle.allDayColor = UIColor(Color("greyLight"))
         
         return style
     }
@@ -92,6 +101,38 @@ class AppointmentsDayTimelineViewController: DayViewController {
         }
         let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
         navigationController?.present(hostingController, animated: true)
+    }
+    
+    private func dayResumeEvent(appointments: [Appointment]) -> Event {
+        let count = "Atendimentos: \(appointments.count)"
+        let invoice = dayInvoice(appointments: appointments)
+        let workedHours = dayWorkedHours(appointments: appointments)
+        let event = Event()
+        event.isAllDay = true
+        event.text = "\(count)\n\(invoice)\n\(workedHours)"
+        event.color = UIColor(Color("pinkDark"))
+        event.lineBreakMode = .byTruncatingTail
+        event.font = UIFont.boldSystemFont(ofSize: 14)
+        event.textColor = UIColor(Color("greyLight"))
+        
+        return event
+    }
+    
+    private func dayInvoice(appointments: [Appointment]) -> String {
+        let invoiceValue: Double = appointments.reduce(0) { $0 + $1.price }
+        let invoiceValueFormatted = currencyFormatter.string(from: invoiceValue) ?? ""
+        return "Faturamento: \(invoiceValueFormatted)"
+    }
+    
+    private func dayWorkedHours(appointments: [Appointment]) -> String {
+        let minutes = appointments.reduce(0) { $0 + $1.duration }
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .hour]
+        formatter.unitsStyle = .full
+        formatter.zeroFormattingBehavior = .dropAll
+        let durationFormatted = formatter.string(from: TimeInterval(minutes)) ?? ""
+
+        return "Tempo: \(durationFormatted)"
     }
       
     // MARK: Actions
@@ -110,14 +151,10 @@ class AppointmentsDayTimelineViewController: DayViewController {
         let results = try? viewContext.fetch(fetchRequest)
         
         if let results = results {
-            if results.isEmpty {
-                let event = Event()
-                event.isAllDay = true
-                event.text = "Nenhuma cliente marcada!"
-                event.color = .lightGray
-                event.lineBreakMode = .byTruncatingTail
-                events.append(event)
-            } else {
+            
+            if !results.isEmpty {
+                events.append(dayResumeEvent(appointments: results))
+                
                 results.forEach { appointment in
                     let endDate = appointment.endDate ?? Date()
                     let eventEnd = calendar.date(byAdding: .minute, value: -1, to: endDate)!
@@ -131,7 +168,6 @@ class AppointmentsDayTimelineViewController: DayViewController {
                 }
             }
         }
-        
         self.currentDate = date
         return events
     }

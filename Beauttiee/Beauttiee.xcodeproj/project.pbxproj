@@ -8,14 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		CF1A016C296746C100472A68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1A016B296746C100472A68 /* Launch Screen.storyboard */; };
+		CF1A01C02968D3E000472A68 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF1A016F2968D3E000472A68 /* Localizable.strings */; };
+		CF1A01C12968D3E000472A68 /* Locale+24Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A019A2968D3E000472A68 /* Locale+24Hour.swift */; };
+		CF1A01C22968D3E000472A68 /* Value+Clamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A019B2968D3E000472A68 /* Value+Clamped.swift */; };
+		CF1A01C32968D3E000472A68 /* Array+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A019C2968D3E000472A68 /* Array+Shift.swift */; };
+		CF1A01C42968D3E000472A68 /* View+StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A019D2968D3E000472A68 /* View+StackView.swift */; };
+		CF1A01C52968D3E000472A68 /* Date+DateOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A019E2968D3E000472A68 /* Date+DateOnly.swift */; };
+		CF1A01C62968D3E000472A68 /* UIColor+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A019F2968D3E000472A68 /* UIColor+SystemColors.swift */; };
+		CF1A01C72968D3E000472A68 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A02968D3E000472A68 /* Localization.swift */; };
+		CF1A01C82968D3E000472A68 /* ReusePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A22968D3E000472A68 /* ReusePool.swift */; };
+		CF1A01C92968D3E000472A68 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A32968D3E000472A68 /* EventView.swift */; };
+		CF1A01CA2968D3E000472A68 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A42968D3E000472A68 /* Event.swift */; };
+		CF1A01CB2968D3E000472A68 /* AllDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A52968D3E000472A68 /* AllDayView.swift */; };
+		CF1A01CC2968D3E000472A68 /* TimelineContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A62968D3E000472A68 /* TimelineContainer.swift */; };
+		CF1A01CD2968D3E000472A68 /* TimeStringsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A72968D3E000472A68 /* TimeStringsFactory.swift */; };
+		CF1A01CE2968D3E000472A68 /* EventDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A82968D3E000472A68 /* EventDescriptor.swift */; };
+		CF1A01CF2968D3E000472A68 /* TimelinePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01A92968D3E000472A68 /* TimelinePagerView.swift */; };
+		CF1A01D02968D3E000472A68 /* CurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01AA2968D3E000472A68 /* CurrentTimeIndicator.swift */; };
+		CF1A01D12968D3E000472A68 /* TimelineContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01AB2968D3E000472A68 /* TimelineContainerController.swift */; };
+		CF1A01D22968D3E000472A68 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01AC2968D3E000472A68 /* TimelineView.swift */; };
+		CF1A01D32968D3E000472A68 /* EventEditingSnappingBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01AD2968D3E000472A68 /* EventEditingSnappingBehavior.swift */; };
+		CF1A01D42968D3E000472A68 /* EventResizeHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01AE2968D3E000472A68 /* EventResizeHandleView.swift */; };
+		CF1A01D52968D3E000472A68 /* EventLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01AF2968D3E000472A68 /* EventLayoutAttributes.swift */; };
+		CF1A01D62968D3E000472A68 /* SnapTo15MinuteIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B02968D3E000472A68 /* SnapTo15MinuteIntervals.swift */; };
+		CF1A01D72968D3E000472A68 /* EventResizeHandleDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B12968D3E000472A68 /* EventResizeHandleDotView.swift */; };
+		CF1A01D82968D3E000472A68 /* DayViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B22968D3E000472A68 /* DayViewState.swift */; };
+		CF1A01D92968D3E000472A68 /* EventDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B32968D3E000472A68 /* EventDataSource.swift */; };
+		CF1A01DA2968D3E000472A68 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B42968D3E000472A68 /* DayView.swift */; };
+		CF1A01DB2968D3E000472A68 /* CalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B52968D3E000472A68 /* CalendarStyle.swift */; };
+		CF1A01DC2968D3E000472A68 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B62968D3E000472A68 /* DayViewController.swift */; };
+		CF1A01DD2968D3E000472A68 /* DayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B82968D3E000472A68 /* DayHeaderView.swift */; };
+		CF1A01DE2968D3E000472A68 /* SwipeLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01B92968D3E000472A68 /* SwipeLabelView.swift */; };
+		CF1A01DF2968D3E000472A68 /* DayDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01BB2968D3E000472A68 /* DayDateCell.swift */; };
+		CF1A01E02968D3E000472A68 /* DaySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01BC2968D3E000472A68 /* DaySelectorController.swift */; };
+		CF1A01E12968D3E000472A68 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01BD2968D3E000472A68 /* DateLabel.swift */; };
+		CF1A01E22968D3E000472A68 /* DaySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01BE2968D3E000472A68 /* DaySelector.swift */; };
+		CF1A01E32968D3E000472A68 /* DaySymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A01BF2968D3E000472A68 /* DaySymbolsView.swift */; };
 		CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */; };
 		CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A532294A3BBD0007ADE1 /* CurrencyText */; };
 		CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */; };
-		CF33A538295342EE0007ADE1 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF33A537295342EE0007ADE1 /* CalendarKit */; };
 		CF33A53D295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */; };
 		CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */; };
 		CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */; };
 		CF33A545295A33E90007ADE1 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A544295A33E90007ADE1 /* MainTabBarView.swift */; };
+		CF7448D4296B69C10047EF36 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7448D3296B69C10047EF36 /* Appointment.swift */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
 		CFF78DD8295F516D00493FB3 /* NewAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF78DD7295F516D00493FB3 /* NewAppointmentView.swift */; };
@@ -54,10 +90,87 @@
 /* Begin PBXFileReference section */
 		CF1A016A296744E400472A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CF1A016B296746C100472A68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		CF1A01702968D3E000472A68 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01712968D3E000472A68 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01722968D3E000472A68 /* en_AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_AU; path = en_AU.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01732968D3E000472A68 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01742968D3E000472A68 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01752968D3E000472A68 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CF1A01762968D3E000472A68 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01772968D3E000472A68 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CF1A01782968D3E000472A68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01792968D3E000472A68 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A017A2968D3E000472A68 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CF1A017B2968D3E000472A68 /* es_419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es_419; path = es_419.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A017C2968D3E000472A68 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A017D2968D3E000472A68 /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A017E2968D3E000472A68 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A017F2968D3E000472A68 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01802968D3E000472A68 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01812968D3E000472A68 /* pt_PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_PT; path = pt_PT.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01822968D3E000472A68 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01832968D3E000472A68 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01842968D3E000472A68 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01852968D3E000472A68 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01862968D3E000472A68 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CF1A01872968D3E000472A68 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01882968D3E000472A68 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01892968D3E000472A68 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A018A2968D3E000472A68 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A018B2968D3E000472A68 /* en_GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_GB; path = en_GB.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A018C2968D3E000472A68 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A018D2968D3E000472A68 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A018E2968D3E000472A68 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CF1A018F2968D3E000472A68 /* fr_CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr_CA; path = fr_CA.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01902968D3E000472A68 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01912968D3E000472A68 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01922968D3E000472A68 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01932968D3E000472A68 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01942968D3E000472A68 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01952968D3E000472A68 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01962968D3E000472A68 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01972968D3E000472A68 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A01982968D3E000472A68 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF1A019A2968D3E000472A68 /* Locale+24Hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locale+24Hour.swift"; sourceTree = "<group>"; };
+		CF1A019B2968D3E000472A68 /* Value+Clamped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Value+Clamped.swift"; sourceTree = "<group>"; };
+		CF1A019C2968D3E000472A68 /* Array+Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Shift.swift"; sourceTree = "<group>"; };
+		CF1A019D2968D3E000472A68 /* View+StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+StackView.swift"; sourceTree = "<group>"; };
+		CF1A019E2968D3E000472A68 /* Date+DateOnly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+DateOnly.swift"; sourceTree = "<group>"; };
+		CF1A019F2968D3E000472A68 /* UIColor+SystemColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SystemColors.swift"; sourceTree = "<group>"; };
+		CF1A01A02968D3E000472A68 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		CF1A01A22968D3E000472A68 /* ReusePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusePool.swift; sourceTree = "<group>"; };
+		CF1A01A32968D3E000472A68 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		CF1A01A42968D3E000472A68 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		CF1A01A52968D3E000472A68 /* AllDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDayView.swift; sourceTree = "<group>"; };
+		CF1A01A62968D3E000472A68 /* TimelineContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineContainer.swift; sourceTree = "<group>"; };
+		CF1A01A72968D3E000472A68 /* TimeStringsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStringsFactory.swift; sourceTree = "<group>"; };
+		CF1A01A82968D3E000472A68 /* EventDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDescriptor.swift; sourceTree = "<group>"; };
+		CF1A01A92968D3E000472A68 /* TimelinePagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelinePagerView.swift; sourceTree = "<group>"; };
+		CF1A01AA2968D3E000472A68 /* CurrentTimeIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTimeIndicator.swift; sourceTree = "<group>"; };
+		CF1A01AB2968D3E000472A68 /* TimelineContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineContainerController.swift; sourceTree = "<group>"; };
+		CF1A01AC2968D3E000472A68 /* TimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		CF1A01AD2968D3E000472A68 /* EventEditingSnappingBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEditingSnappingBehavior.swift; sourceTree = "<group>"; };
+		CF1A01AE2968D3E000472A68 /* EventResizeHandleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventResizeHandleView.swift; sourceTree = "<group>"; };
+		CF1A01AF2968D3E000472A68 /* EventLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLayoutAttributes.swift; sourceTree = "<group>"; };
+		CF1A01B02968D3E000472A68 /* SnapTo15MinuteIntervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTo15MinuteIntervals.swift; sourceTree = "<group>"; };
+		CF1A01B12968D3E000472A68 /* EventResizeHandleDotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventResizeHandleDotView.swift; sourceTree = "<group>"; };
+		CF1A01B22968D3E000472A68 /* DayViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewState.swift; sourceTree = "<group>"; };
+		CF1A01B32968D3E000472A68 /* EventDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDataSource.swift; sourceTree = "<group>"; };
+		CF1A01B42968D3E000472A68 /* DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		CF1A01B52968D3E000472A68 /* CalendarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarStyle.swift; sourceTree = "<group>"; };
+		CF1A01B62968D3E000472A68 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		CF1A01B82968D3E000472A68 /* DayHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayHeaderView.swift; sourceTree = "<group>"; };
+		CF1A01B92968D3E000472A68 /* SwipeLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeLabelView.swift; sourceTree = "<group>"; };
+		CF1A01BB2968D3E000472A68 /* DayDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayDateCell.swift; sourceTree = "<group>"; };
+		CF1A01BC2968D3E000472A68 /* DaySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySelectorController.swift; sourceTree = "<group>"; };
+		CF1A01BD2968D3E000472A68 /* DateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
+		CF1A01BE2968D3E000472A68 /* DaySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySelector.swift; sourceTree = "<group>"; };
+		CF1A01BF2968D3E000472A68 /* DaySymbolsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySymbolsView.swift; sourceTree = "<group>"; };
 		CF33A53C295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineViewController.swift; sourceTree = "<group>"; };
 		CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineBridgeView.swift; sourceTree = "<group>"; };
 		CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
 		CF33A544295A33E90007ADE1 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		CF7448D3296B69C10047EF36 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
 		CFF78DD7295F516D00493FB3 /* NewAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppointmentView.swift; sourceTree = "<group>"; };
@@ -85,7 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */,
-				CF33A538295342EE0007ADE1 /* CalendarKit in Frameworks */,
 				CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */,
 				CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */,
 			);
@@ -108,6 +220,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF1A016D2968D3B000472A68 /* CalendarKit */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A01B52968D3E000472A68 /* CalendarStyle.swift */,
+				CF1A01B42968D3E000472A68 /* DayView.swift */,
+				CF1A01B62968D3E000472A68 /* DayViewController.swift */,
+				CF1A01B22968D3E000472A68 /* DayViewState.swift */,
+				CF1A01B32968D3E000472A68 /* EventDataSource.swift */,
+				CF1A01992968D3E000472A68 /* Extensions */,
+				CF1A01B72968D3E000472A68 /* Header */,
+				CF1A01A02968D3E000472A68 /* Localization.swift */,
+				CF1A016E2968D3E000472A68 /* Localizations */,
+				CF1A01A12968D3E000472A68 /* Timeline */,
+			);
+			path = CalendarKit;
+			sourceTree = "<group>";
+		};
+		CF1A016E2968D3E000472A68 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A016F2968D3E000472A68 /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
+		CF1A01992968D3E000472A68 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A019A2968D3E000472A68 /* Locale+24Hour.swift */,
+				CF1A019B2968D3E000472A68 /* Value+Clamped.swift */,
+				CF1A019C2968D3E000472A68 /* Array+Shift.swift */,
+				CF1A019D2968D3E000472A68 /* View+StackView.swift */,
+				CF1A019E2968D3E000472A68 /* Date+DateOnly.swift */,
+				CF1A019F2968D3E000472A68 /* UIColor+SystemColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CF1A01A12968D3E000472A68 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A01A22968D3E000472A68 /* ReusePool.swift */,
+				CF1A01A32968D3E000472A68 /* EventView.swift */,
+				CF1A01A42968D3E000472A68 /* Event.swift */,
+				CF1A01A52968D3E000472A68 /* AllDayView.swift */,
+				CF1A01A62968D3E000472A68 /* TimelineContainer.swift */,
+				CF1A01A72968D3E000472A68 /* TimeStringsFactory.swift */,
+				CF1A01A82968D3E000472A68 /* EventDescriptor.swift */,
+				CF1A01A92968D3E000472A68 /* TimelinePagerView.swift */,
+				CF1A01AA2968D3E000472A68 /* CurrentTimeIndicator.swift */,
+				CF1A01AB2968D3E000472A68 /* TimelineContainerController.swift */,
+				CF1A01AC2968D3E000472A68 /* TimelineView.swift */,
+				CF1A01AD2968D3E000472A68 /* EventEditingSnappingBehavior.swift */,
+				CF1A01AE2968D3E000472A68 /* EventResizeHandleView.swift */,
+				CF1A01AF2968D3E000472A68 /* EventLayoutAttributes.swift */,
+				CF1A01B02968D3E000472A68 /* SnapTo15MinuteIntervals.swift */,
+				CF1A01B12968D3E000472A68 /* EventResizeHandleDotView.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		CF1A01B72968D3E000472A68 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A01B82968D3E000472A68 /* DayHeaderView.swift */,
+				CF1A01B92968D3E000472A68 /* SwipeLabelView.swift */,
+				CF1A01BA2968D3E000472A68 /* DaySelector */,
+				CF1A01BF2968D3E000472A68 /* DaySymbolsView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		CF1A01BA2968D3E000472A68 /* DaySelector */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A01BB2968D3E000472A68 /* DayDateCell.swift */,
+				CF1A01BC2968D3E000472A68 /* DaySelectorController.swift */,
+				CF1A01BD2968D3E000472A68 /* DateLabel.swift */,
+				CF1A01BE2968D3E000472A68 /* DaySelector.swift */,
+			);
+			path = DaySelector;
+			sourceTree = "<group>";
+		};
 		CF33A53A2953756C0007ADE1 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				CFF78DDA295F570000493FB3 /* PaymentType.swift */,
+				CF7448D3296B69C10047EF36 /* Appointment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +403,7 @@
 		CFFE16B6292D03A50030DD1D /* Beauttiee */ = {
 			isa = PBXGroup;
 			children = (
+				CF1A016D2968D3B000472A68 /* CalendarKit */,
 				CF1A016A296744E400472A68 /* Info.plist */,
 				CF33A53A2953756C0007ADE1 /* Appointment */,
 				CFFE16EE292D6DFC0030DD1D /* Extensions */,
@@ -311,7 +508,6 @@
 				CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */,
 				CF33A532294A3BBD0007ADE1 /* CurrencyText */,
 				CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */,
-				CF33A537295342EE0007ADE1 /* CalendarKit */,
 			);
 			productName = Beauttiee;
 			productReference = CFFE16B4292D03A50030DD1D /* Beauttiee.app */;
@@ -383,11 +579,51 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				he,
+				en_AU,
+				ar,
+				el,
+				"zh-Hans",
+				ja,
+				"zh-TW",
+				uk,
+				"zh-HK",
+				es_419,
+				es,
+				pt_BR,
+				da,
+				it,
+				sk,
+				pt_PT,
+				ms,
+				sv,
+				cs,
+				ko,
+				"zh-Hant",
+				no,
+				nb,
+				hu,
+				tr,
+				pl,
+				en_GB,
+				vi,
+				ru,
+				"zh-CN",
+				fr_CA,
+				fr,
+				fi,
+				id,
+				nl,
+				th,
+				ro,
+				hr,
+				hi,
+				ca,
 			);
 			mainGroup = CFFE16AB292D03A50030DD1D;
 			packageReferences = (
 				CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */,
-				CF33A536295342EE0007ADE1 /* XCRemoteSwiftPackageReference "CalendarKit" */,
 			);
 			productRefGroup = CFFE16B5292D03A50030DD1D /* Products */;
 			projectDirPath = "";
@@ -406,6 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF1A016C296746C100472A68 /* Launch Screen.storyboard in Resources */,
+				CF1A01C02968D3E000472A68 /* Localizable.strings in Resources */,
 				CFFE16BF292D03A50030DD1D /* Preview Assets.xcassets in Resources */,
 				CFFE16BC292D03A50030DD1D /* Assets.xcassets in Resources */,
 			);
@@ -432,21 +669,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1A01D02968D3E000472A68 /* CurrentTimeIndicator.swift in Sources */,
+				CF1A01D52968D3E000472A68 /* EventLayoutAttributes.swift in Sources */,
 				CFFE16EA292D342B0030DD1D /* ServicesView.swift in Sources */,
 				CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */,
+				CF1A01C22968D3E000472A68 /* Value+Clamped.swift in Sources */,
 				CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */,
 				CF33A53D295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift in Sources */,
+				CF1A01C82968D3E000472A68 /* ReusePool.swift in Sources */,
+				CF1A01E02968D3E000472A68 /* DaySelectorController.swift in Sources */,
 				CFFE16F0292D6E130030DD1D /* ViewExtension.swift in Sources */,
+				CF1A01CF2968D3E000472A68 /* TimelinePagerView.swift in Sources */,
 				CFF78DD8295F516D00493FB3 /* NewAppointmentView.swift in Sources */,
 				CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */,
+				CF1A01D32968D3E000472A68 /* EventEditingSnappingBehavior.swift in Sources */,
 				CFFE16C4292D03A50030DD1D /* Beauttiee.xcdatamodeld in Sources */,
+				CF7448D4296B69C10047EF36 /* Appointment.swift in Sources */,
 				CF33A545295A33E90007ADE1 /* MainTabBarView.swift in Sources */,
+				CF1A01C32968D3E000472A68 /* Array+Shift.swift in Sources */,
+				CF1A01D12968D3E000472A68 /* TimelineContainerController.swift in Sources */,
+				CF1A01C42968D3E000472A68 /* View+StackView.swift in Sources */,
+				CF1A01D42968D3E000472A68 /* EventResizeHandleView.swift in Sources */,
+				CF1A01D22968D3E000472A68 /* TimelineView.swift in Sources */,
+				CF1A01DD2968D3E000472A68 /* DayHeaderView.swift in Sources */,
+				CF1A01CC2968D3E000472A68 /* TimelineContainer.swift in Sources */,
+				CF1A01DB2968D3E000472A68 /* CalendarStyle.swift in Sources */,
+				CF1A01E12968D3E000472A68 /* DateLabel.swift in Sources */,
+				CF1A01E32968D3E000472A68 /* DaySymbolsView.swift in Sources */,
+				CF1A01D92968D3E000472A68 /* EventDataSource.swift in Sources */,
+				CF1A01C72968D3E000472A68 /* Localization.swift in Sources */,
 				CFF78DDF2960B13900493FB3 /* ColorExtension.swift in Sources */,
+				CF1A01DF2968D3E000472A68 /* DayDateCell.swift in Sources */,
+				CF1A01CB2968D3E000472A68 /* AllDayView.swift in Sources */,
+				CF1A01C92968D3E000472A68 /* EventView.swift in Sources */,
 				CFFE16B8292D03A50030DD1D /* BeauttieeApp.swift in Sources */,
 				CFFE16ED292D6D8C0030DD1D /* EmptyViewModifier.swift in Sources */,
+				CF1A01E22968D3E000472A68 /* DaySelector.swift in Sources */,
+				CF1A01D62968D3E000472A68 /* SnapTo15MinuteIntervals.swift in Sources */,
+				CF1A01CD2968D3E000472A68 /* TimeStringsFactory.swift in Sources */,
+				CF1A01C52968D3E000472A68 /* Date+DateOnly.swift in Sources */,
+				CF1A01CE2968D3E000472A68 /* EventDescriptor.swift in Sources */,
+				CF1A01DC2968D3E000472A68 /* DayViewController.swift in Sources */,
 				CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */,
+				CF1A01C12968D3E000472A68 /* Locale+24Hour.swift in Sources */,
+				CF1A01DA2968D3E000472A68 /* DayView.swift in Sources */,
+				CF1A01D72968D3E000472A68 /* EventResizeHandleDotView.swift in Sources */,
 				CFF78DDB295F570000493FB3 /* PaymentType.swift in Sources */,
 				CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */,
+				CF1A01C62968D3E000472A68 /* UIColor+SystemColors.swift in Sources */,
+				CF1A01DE2968D3E000472A68 /* SwipeLabelView.swift in Sources */,
+				CF1A01CA2968D3E000472A68 /* Event.swift in Sources */,
+				CF1A01D82968D3E000472A68 /* DayViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +754,57 @@
 			targetProxy = CFFE16D4292D03A60030DD1D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF1A016F2968D3E000472A68 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF1A01702968D3E000472A68 /* de */,
+				CF1A01712968D3E000472A68 /* he */,
+				CF1A01722968D3E000472A68 /* en_AU */,
+				CF1A01732968D3E000472A68 /* ar */,
+				CF1A01742968D3E000472A68 /* el */,
+				CF1A01752968D3E000472A68 /* zh-Hans */,
+				CF1A01762968D3E000472A68 /* ja */,
+				CF1A01772968D3E000472A68 /* zh-TW */,
+				CF1A01782968D3E000472A68 /* en */,
+				CF1A01792968D3E000472A68 /* uk */,
+				CF1A017A2968D3E000472A68 /* zh-HK */,
+				CF1A017B2968D3E000472A68 /* es_419 */,
+				CF1A017C2968D3E000472A68 /* es */,
+				CF1A017D2968D3E000472A68 /* pt_BR */,
+				CF1A017E2968D3E000472A68 /* da */,
+				CF1A017F2968D3E000472A68 /* it */,
+				CF1A01802968D3E000472A68 /* sk */,
+				CF1A01812968D3E000472A68 /* pt_PT */,
+				CF1A01822968D3E000472A68 /* ms */,
+				CF1A01832968D3E000472A68 /* sv */,
+				CF1A01842968D3E000472A68 /* cs */,
+				CF1A01852968D3E000472A68 /* ko */,
+				CF1A01862968D3E000472A68 /* zh-Hant */,
+				CF1A01872968D3E000472A68 /* no */,
+				CF1A01882968D3E000472A68 /* hu */,
+				CF1A01892968D3E000472A68 /* tr */,
+				CF1A018A2968D3E000472A68 /* pl */,
+				CF1A018B2968D3E000472A68 /* en_GB */,
+				CF1A018C2968D3E000472A68 /* vi */,
+				CF1A018D2968D3E000472A68 /* ru */,
+				CF1A018E2968D3E000472A68 /* zh-CN */,
+				CF1A018F2968D3E000472A68 /* fr_CA */,
+				CF1A01902968D3E000472A68 /* fr */,
+				CF1A01912968D3E000472A68 /* fi */,
+				CF1A01922968D3E000472A68 /* id */,
+				CF1A01932968D3E000472A68 /* nl */,
+				CF1A01942968D3E000472A68 /* th */,
+				CF1A01952968D3E000472A68 /* ro */,
+				CF1A01962968D3E000472A68 /* hr */,
+				CF1A01972968D3E000472A68 /* hi */,
+				CF1A01982968D3E000472A68 /* ca */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CFFE16DB292D03A60030DD1D /* Debug */ = {
@@ -795,14 +1119,6 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		CF33A536295342EE0007ADE1 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -820,11 +1136,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */;
 			productName = CurrencyTextSwiftUI;
-		};
-		CF33A537295342EE0007ADE1 /* CalendarKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CF33A536295342EE0007ADE1 /* XCRemoteSwiftPackageReference "CalendarKit" */;
-			productName = CalendarKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
