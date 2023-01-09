@@ -26,8 +26,21 @@ struct ServiceDetailView: View {
     @State private var serviceDuration: ServiceDuration?
     private let serviceDurations = ServiceDuration.allCases
     
-    init() {
-        _priceText = State(initialValue: currencyFormatter.string(from: 0) ?? "")
+    private var service: Service?
+    
+    init(service: Service? = nil) {
+        self.service = service
+        
+        if let service {
+            _name = State(initialValue: service.name ?? "")
+            _priceText = State(initialValue: currencyFormatter.string(from: service.price) ?? "")
+            if service.duration > 0,
+               let serviceDuration = ServiceDuration(rawValue: Int(service.duration)) {
+                _serviceDuration = State(initialValue: serviceDuration)
+            }
+        } else {
+            _priceText = State(initialValue: currencyFormatter.string(from: 0) ?? "")
+        }
     }
     
     var body: some View {
@@ -74,13 +87,20 @@ struct ServiceDetailView: View {
     
     private func save() {
         withAnimation {
-            let service = Service(context: viewContext)
-            service.id = UUID()
-            service.name = self.name
-            service.price = self.price ?? 0
-            service.cost = self.cost ?? 0
+            var serviceData: Service?
+            
+            if let service = self.service {
+                serviceData = service
+            } else {
+                serviceData = Service(context: viewContext)
+                serviceData?.id = UUID()
+            }
+            
+            serviceData?.name = self.name
+            serviceData?.price = self.price ?? 0
+            serviceData?.cost = self.cost ?? 0
             if let serviceDuration = serviceDuration {
-                service.duration = Int16(serviceDuration.rawValue)
+                serviceData?.duration = Int16(serviceDuration.rawValue)
             }
             
             try? self.viewContext.save()

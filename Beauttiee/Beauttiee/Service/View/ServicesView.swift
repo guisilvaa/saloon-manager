@@ -18,13 +18,18 @@ struct ServicesView: View {
         animation: .default)
     private var services: FetchedResults<Service>
     
-    @State var showView = false
+    @State private var showServiceDetailView = false
+    @State private var serviceSelected: Service? = nil
     
     var body: some View {
         NavigationView{
             List {
                 ForEach(services, id: \.id) { service in
-                    ServiceItemView(service: service)
+                    Button {
+                        self.serviceSelected = service
+                    } label: {
+                        ServiceItemView(service: service)
+                    }
                 }
                 .onDelete(perform: delete)
             }
@@ -34,7 +39,7 @@ struct ServicesView: View {
             .listRowSeparatorTint(Color("pinkLight"))
             .emptyView(services.isEmpty) {
                 Button(action: {
-                    self.showView.toggle()
+                    self.showServiceDetailView.toggle()
                 }, label: {
                     VStack {
                         Image(systemName: "plus.circle")
@@ -49,14 +54,15 @@ struct ServicesView: View {
             .navigationTitle("Serviços")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
-                self.showView.toggle()
+                self.showServiceDetailView.toggle()
             }, label: {
                 Label("Adicionar", systemImage: "plus")
             }))
-            .sheet(isPresented: $showView) {
-                ServiceDetailView()
-                    .preferredColorScheme(.light)
-                    .environment(\.managedObjectContext, viewContext)
+            .sheet(isPresented: $showServiceDetailView, content: {
+                serviceDetailView()
+            })
+            .sheet(item: $serviceSelected) { service in
+                serviceDetailView(service: service)
             }
         }
     }
@@ -66,6 +72,13 @@ struct ServicesView: View {
             offsets.map { services[$0] }.forEach(viewContext.delete)
             try? viewContext.save()
         }
+    }
+    
+    @ViewBuilder
+    private func serviceDetailView(service: Service? = nil) -> some View {
+        ServiceDetailView(service: service)
+            .preferredColorScheme(.light)
+            .environment(\.managedObjectContext, viewContext)
     }
 }
 
