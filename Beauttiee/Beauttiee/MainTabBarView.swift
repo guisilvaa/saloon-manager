@@ -20,6 +20,12 @@ struct MainTabBarView: View {
                         Image(systemName: "calendar")
                         Text("Agenda")
                     }
+                MonthFinancialView()
+                    .environment(\.managedObjectContext, viewContext)
+                    .tabItem {
+                        Image(systemName: "chart.pie")
+                        Text("Financeiro")
+                    }
                 ServicesView()
                     .environment(\.managedObjectContext, viewContext)
                     .tabItem {

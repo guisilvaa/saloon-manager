@@ -51,6 +51,8 @@
 		CF33A540295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */; };
 		CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */; };
 		CF33A545295A33E90007ADE1 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A544295A33E90007ADE1 /* MainTabBarView.swift */; };
+		CF5B8664297B086D00FE283E /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = CF5B8663297B086D00FE283E /* SwiftPieChart */; };
+		CF5B86682980643300FE283E /* MonthFinancialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B86672980643300FE283E /* MonthFinancialView.swift */; };
 		CF7448D4296B69C10047EF36 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7448D3296B69C10047EF36 /* Appointment.swift */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
@@ -170,6 +172,7 @@
 		CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDayTimelineBridgeView.swift; sourceTree = "<group>"; };
 		CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
 		CF33A544295A33E90007ADE1 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		CF5B86672980643300FE283E /* MonthFinancialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFinancialView.swift; sourceTree = "<group>"; };
 		CF7448D3296B69C10047EF36 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 			files = (
 				CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */,
 				CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */,
+				CF5B8664297B086D00FE283E /* SwiftPieChart in Frameworks */,
 				CF33A535294A3BBD0007ADE1 /* CurrencyTextSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +343,22 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		CF5B8665298063ED00FE283E /* Financial */ = {
+			isa = PBXGroup;
+			children = (
+				CF5B8666298063FE00FE283E /* View */,
+			);
+			path = Financial;
+			sourceTree = "<group>";
+		};
+		CF5B8666298063FE00FE283E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF5B86672980643300FE283E /* MonthFinancialView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CF7EF85A29391FD400D1F237 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +423,7 @@
 		CFFE16B6292D03A50030DD1D /* Beauttiee */ = {
 			isa = PBXGroup;
 			children = (
+				CF5B8665298063ED00FE283E /* Financial */,
 				CF1A016D2968D3B000472A68 /* CalendarKit */,
 				CF1A016A296744E400472A68 /* Info.plist */,
 				CF33A53A2953756C0007ADE1 /* Appointment */,
@@ -508,6 +529,7 @@
 				CF33A530294A3BBD0007ADE1 /* CurrencyFormatter */,
 				CF33A532294A3BBD0007ADE1 /* CurrencyText */,
 				CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */,
+				CF5B8663297B086D00FE283E /* SwiftPieChart */,
 			);
 			productName = Beauttiee;
 			productReference = CFFE16B4292D03A50030DD1D /* Beauttiee.app */;
@@ -624,6 +646,7 @@
 			mainGroup = CFFE16AB292D03A50030DD1D;
 			packageReferences = (
 				CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */,
+				CF5B8662297B086D00FE283E /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
 			);
 			productRefGroup = CFFE16B5292D03A50030DD1D /* Products */;
 			projectDirPath = "";
@@ -710,6 +733,7 @@
 				CF1A01C52968D3E000472A68 /* Date+DateOnly.swift in Sources */,
 				CF1A01CE2968D3E000472A68 /* EventDescriptor.swift in Sources */,
 				CF1A01DC2968D3E000472A68 /* DayViewController.swift in Sources */,
+				CF5B86682980643300FE283E /* MonthFinancialView.swift in Sources */,
 				CF33A543295A19FD0007ADE1 /* AppointmentDetailView.swift in Sources */,
 				CF1A01C12968D3E000472A68 /* Locale+24Hour.swift in Sources */,
 				CF1A01DA2968D3E000472A68 /* DayView.swift in Sources */,
@@ -1119,6 +1143,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		CF5B8662297B086D00FE283E /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1136,6 +1168,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */;
 			productName = CurrencyTextSwiftUI;
+		};
+		CF5B8663297B086D00FE283E /* SwiftPieChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF5B8662297B086D00FE283E /* XCRemoteSwiftPackageReference "SwiftPieChart" */;
+			productName = SwiftPieChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 

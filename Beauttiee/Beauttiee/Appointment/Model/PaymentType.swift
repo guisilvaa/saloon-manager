@@ -8,6 +8,7 @@
 import Foundation
 
 enum PaymentType: Int, CaseIterable {
+    case none = 0
     case pix = 1
     case money
     case credit
@@ -23,6 +24,21 @@ enum PaymentType: Int, CaseIterable {
             return "Crédito"
         case .debit:
             return "Débito"
+        default:
+            return ""
+        }
+    }
+    
+    var iconName: String {
+        switch self {
+        case .pix:
+            return "dollarsign.square.fill"
+        case .money:
+            return "banknote.fill"
+        case .credit, .debit:
+            return "creditcard.fill"
+        default:
+            return ""
         }
     }
 }

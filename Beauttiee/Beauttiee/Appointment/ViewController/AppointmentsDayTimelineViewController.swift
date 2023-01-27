@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CalendarKit
 import CoreData
 import SwiftUI
 import CurrencyFormatter
