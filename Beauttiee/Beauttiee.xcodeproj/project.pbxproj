@@ -53,6 +53,8 @@
 		CF33A545295A33E90007ADE1 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33A544295A33E90007ADE1 /* MainTabBarView.swift */; };
 		CF5B8664297B086D00FE283E /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = CF5B8663297B086D00FE283E /* SwiftPieChart */; };
 		CF5B86682980643300FE283E /* MonthFinancialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B86672980643300FE283E /* MonthFinancialView.swift */; };
+		CF5B866A298967BB00FE283E /* AppointmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B8669298967BB00FE283E /* AppointmentType.swift */; };
+		CF5B866D298969B800FE283E /* PersonalAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B866C298969B800FE283E /* PersonalAppointmentView.swift */; };
 		CF7448D4296B69C10047EF36 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7448D3296B69C10047EF36 /* Appointment.swift */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
@@ -173,6 +175,8 @@
 		CF33A542295A19FD0007ADE1 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
 		CF33A544295A33E90007ADE1 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		CF5B86672980643300FE283E /* MonthFinancialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFinancialView.swift; sourceTree = "<group>"; };
+		CF5B8669298967BB00FE283E /* AppointmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentType.swift; sourceTree = "<group>"; };
+		CF5B866C298969B800FE283E /* PersonalAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAppointmentView.swift; sourceTree = "<group>"; };
 		CF7448D3296B69C10047EF36 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		CF7EF85F293927D200D1F237 /* ServiceDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDuration.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 		CF33A53E295376AD0007ADE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF5B866B2989698600FE283E /* Personal */,
 				CFF78DD6295F515300493FB3 /* New */,
 				CF33A541295A19DB0007ADE1 /* Detail */,
 				CF33A53F295376D70007ADE1 /* AppointmentsDayTimelineBridgeView.swift */,
@@ -357,6 +362,14 @@
 				CF5B86672980643300FE283E /* MonthFinancialView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CF5B866B2989698600FE283E /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				CF5B866C298969B800FE283E /* PersonalAppointmentView.swift */,
+			);
+			path = Personal;
 			sourceTree = "<group>";
 		};
 		CF7EF85A29391FD400D1F237 /* Detail */ = {
@@ -396,6 +409,7 @@
 			children = (
 				CFF78DDA295F570000493FB3 /* PaymentType.swift */,
 				CF7448D3296B69C10047EF36 /* Appointment.swift */,
+				CF5B8669298967BB00FE283E /* AppointmentType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -696,6 +710,7 @@
 				CF1A01D52968D3E000472A68 /* EventLayoutAttributes.swift in Sources */,
 				CFFE16EA292D342B0030DD1D /* ServicesView.swift in Sources */,
 				CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */,
+				CF5B866D298969B800FE283E /* PersonalAppointmentView.swift in Sources */,
 				CF1A01C22968D3E000472A68 /* Value+Clamped.swift in Sources */,
 				CFFE16C1292D03A50030DD1D /* Persistence.swift in Sources */,
 				CF33A53D295375DD0007ADE1 /* AppointmentsDayTimelineViewController.swift in Sources */,
@@ -710,6 +725,7 @@
 				CF7448D4296B69C10047EF36 /* Appointment.swift in Sources */,
 				CF33A545295A33E90007ADE1 /* MainTabBarView.swift in Sources */,
 				CF1A01C32968D3E000472A68 /* Array+Shift.swift in Sources */,
+				CF5B866A298967BB00FE283E /* AppointmentType.swift in Sources */,
 				CF1A01D12968D3E000472A68 /* TimelineContainerController.swift in Sources */,
 				CF1A01C42968D3E000472A68 /* View+StackView.swift in Sources */,
 				CF1A01D42968D3E000472A68 /* EventResizeHandleView.swift in Sources */,

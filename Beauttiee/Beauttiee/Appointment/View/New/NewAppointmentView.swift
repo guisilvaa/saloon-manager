@@ -130,6 +130,7 @@ struct NewAppointmentView: View {
             appointment.price = price ?? 0
             appointment.serviceName = service?.name
             appointment.client = client
+            appointment.type = Int16(AppointmentType.client.rawValue) 
             try? self.viewContext.save()
             
             dismiss()

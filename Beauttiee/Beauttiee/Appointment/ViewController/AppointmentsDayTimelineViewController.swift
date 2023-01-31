@@ -51,12 +51,9 @@ class AppointmentsDayTimelineViewController: DayViewController {
     }
     
     private func navigateToAppointmentDetail(_ appointment: Appointment) {
-        var appointmentView = AppointmentDetailView(appointment: appointment)
-        appointmentView.onAppointmentChanged = {
-            self.reloadData()
+        if let type = AppointmentType(rawValue: Int(appointment.type)) {
+            type == .client ? navigateToClientAppointment(appointment) : navigateToPersonalAppointment(appointment)
         }
-        let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
-        navigationController?.present(hostingController, animated: true)
     }
     
     private func appointmentInfo(_ appointment: Appointment) -> NSAttributedString {
@@ -64,7 +61,8 @@ class AppointmentsDayTimelineViewController: DayViewController {
         hourFormatter.dateFormat = "HH:mm"
         let startTime = hourFormatter.string(from: appointment.startDate ?? Date.now)
         let endTime = hourFormatter.string(from: appointment.endDate ?? Date.now)
-        let title = "\(appointment.client ?? "") - \(appointment.serviceName ?? "")\n"
+        let appointmentType = AppointmentType(rawValue: Int(appointment.type))
+        let title = appointmentType == .client ? "\(appointment.client ?? "") - \(appointment.serviceName ?? "")\n" : "\(appointment.serviceName ?? "")\n"
         let hourInterval = "\(startTime) - \(endTime)"
         let textAttributesOne = [NSAttributedString.Key.foregroundColor: UIColor(Color("greyDark")),
                                  NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
@@ -133,6 +131,24 @@ class AppointmentsDayTimelineViewController: DayViewController {
 
         return "Tempo: \(durationFormatted)"
     }
+    
+    private func navigateToClientAppointment(_ appointment: Appointment) {
+        var appointmentView = AppointmentDetailView(appointment: appointment)
+        appointmentView.onAppointmentChanged = {
+            self.reloadData()
+        }
+        let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
+        navigationController?.present(hostingController, animated: true)
+    }
+    
+    private func navigateToPersonalAppointment(_ appointment: Appointment? = nil) {
+        var appointmentView = PersonalAppointmentView(date: self.currentDate, appointment: appointment)
+        appointmentView.onNewPersonalAppoitment = {
+            self.reloadData()
+        }
+        let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
+        navigationController?.present(hostingController, animated: true)
+    }
       
     // MARK: Actions
     
@@ -152,16 +168,20 @@ class AppointmentsDayTimelineViewController: DayViewController {
         if let results = results {
             
             if !results.isEmpty {
-                events.append(dayResumeEvent(appointments: results))
+                let clientAppointments = results.filter { $0.type == Int16(AppointmentType.client.rawValue) }
+                if !clientAppointments.isEmpty {
+                    events.append(dayResumeEvent(appointments: clientAppointments))
+                }
                 
                 results.forEach { appointment in
                     let endDate = appointment.endDate ?? Date()
                     let eventEnd = calendar.date(byAdding: .minute, value: -1, to: endDate)!
+                    let appointmentType = AppointmentType(rawValue: Int(appointment.type))
                     let event = Event()
                     event.userInfo = appointment
-                    event.attributedText = appointmentInfo(appointment)
+                    event.attributedText = appointmentType == .client ? appointmentInfo(appointment) : appointmentInfo(appointment)
                     event.dateInterval = DateInterval(start: appointment.startDate ?? Date(), end: eventEnd)
-                    event.color = UIColor(Color("pinkDark"))
+                    event.color = appointmentType == .client ? UIColor(Color("pinkDark")) : UIColor(Color("greyDark"))
                     event.lineBreakMode = .byTruncatingTail
                     events.append(event)
                 }

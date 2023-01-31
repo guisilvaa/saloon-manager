@@ -72,7 +72,7 @@ struct MonthFinancialView: View {
         let (startOfMonth, endOfMonth) = monthInterval()
         let fetchRequest: NSFetchRequest<Appointment> = Appointment.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Appointment.startDate, ascending: true)]
-        fetchRequest.predicate = NSPredicate(format: "startDate >= %@ AND startDate <= %@", argumentArray: [startOfMonth, endOfMonth])
+        fetchRequest.predicate = NSPredicate(format: "type == 0 AND startDate >= %@ AND startDate <= %@", argumentArray: [startOfMonth, endOfMonth])
         let results = try? viewContext.fetch(fetchRequest)
         appointments.removeAll()
         appointments = results ?? []
