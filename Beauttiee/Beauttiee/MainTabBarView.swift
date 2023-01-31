@@ -20,6 +20,7 @@ struct MainTabBarView: View {
                         Image(systemName: "calendar")
                         Text("Agenda")
                     }
+                    .ignoresSafeArea(.container, edges: .bottom)
                 MonthFinancialView()
                     .environment(\.managedObjectContext, viewContext)
                     .tabItem {

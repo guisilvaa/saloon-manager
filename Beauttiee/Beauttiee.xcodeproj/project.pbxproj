@@ -55,6 +55,7 @@
 		CF5B86682980643300FE283E /* MonthFinancialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B86672980643300FE283E /* MonthFinancialView.swift */; };
 		CF5B866A298967BB00FE283E /* AppointmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B8669298967BB00FE283E /* AppointmentType.swift */; };
 		CF5B866D298969B800FE283E /* PersonalAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B866C298969B800FE283E /* PersonalAppointmentView.swift */; };
+		CF5B8670298992AE00FE283E /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = CF5B866F298992AE00FE283E /* Floaty */; };
 		CF7448D4296B69C10047EF36 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7448D3296B69C10047EF36 /* Appointment.swift */; };
 		CF7EF85D29391FF700D1F237 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85C29391FF700D1F237 /* ServiceDetailView.swift */; };
 		CF7EF860293927D200D1F237 /* ServiceDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EF85F293927D200D1F237 /* ServiceDuration.swift */; };
@@ -204,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5B8670298992AE00FE283E /* Floaty in Frameworks */,
 				CF33A533294A3BBD0007ADE1 /* CurrencyText in Frameworks */,
 				CF33A531294A3BBD0007ADE1 /* CurrencyFormatter in Frameworks */,
 				CF5B8664297B086D00FE283E /* SwiftPieChart in Frameworks */,
@@ -544,6 +546,7 @@
 				CF33A532294A3BBD0007ADE1 /* CurrencyText */,
 				CF33A534294A3BBD0007ADE1 /* CurrencyTextSwiftUI */,
 				CF5B8663297B086D00FE283E /* SwiftPieChart */,
+				CF5B866F298992AE00FE283E /* Floaty */,
 			);
 			productName = Beauttiee;
 			productReference = CFFE16B4292D03A50030DD1D /* Beauttiee.app */;
@@ -661,6 +664,7 @@
 			packageReferences = (
 				CF33A52F294A3BBD0007ADE1 /* XCRemoteSwiftPackageReference "CurrencyText" */,
 				CF5B8662297B086D00FE283E /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
+				CF5B866E298992AE00FE283E /* XCRemoteSwiftPackageReference "Floaty" */,
 			);
 			productRefGroup = CFFE16B5292D03A50030DD1D /* Products */;
 			projectDirPath = "";
@@ -1167,6 +1171,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		CF5B866E298992AE00FE283E /* XCRemoteSwiftPackageReference "Floaty" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kciter/Floaty.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1189,6 +1201,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF5B8662297B086D00FE283E /* XCRemoteSwiftPackageReference "SwiftPieChart" */;
 			productName = SwiftPieChart;
+		};
+		CF5B866F298992AE00FE283E /* Floaty */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF5B866E298992AE00FE283E /* XCRemoteSwiftPackageReference "Floaty" */;
+			productName = Floaty;
 		};
 /* End XCSwiftPackageProductDependency section */
 

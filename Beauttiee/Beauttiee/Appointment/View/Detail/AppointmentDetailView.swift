@@ -26,7 +26,7 @@ struct AppointmentDetailView: View {
         $0.currency = .brazilianReal
         $0.locale = CurrencyLocale.portugueseBrazil
     }
-    private let paymentTypes = PaymentType.allCases
+    private let paymentTypes = PaymentType.allCases.filter { $0 != .none }
     @State private var paymentType: PaymentType?
     
     @FetchRequest(

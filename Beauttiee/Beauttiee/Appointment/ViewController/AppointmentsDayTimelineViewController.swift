@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import SwiftUI
 import CurrencyFormatter
+import Floaty
 
 class AppointmentsDayTimelineViewController: DayViewController {
     
@@ -36,8 +37,28 @@ class AppointmentsDayTimelineViewController: DayViewController {
         dayView.autoScrollToFirstEvent = true
         reloadData()
         
-        let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(onAddApointmentClicked))
-        self.navigationItem.setRightBarButton(rightBarButton, animated: true)
+        setupFloatyButton()
+    }
+    
+    private func setupFloatyButton() {
+        let floaty = Floaty()
+        floaty.buttonColor = UIColor(Color("pinkDark"))
+        floaty.plusColor = UIColor(.white)
+        floaty.overlayColor = UIColor(Color("greyLight")).withAlphaComponent(0.8)
+        floaty.openAnimationType = .fade
+        floaty.itemImageColor = UIColor(Color("pinkDark"))
+        floaty.itemTitleColor = UIColor(Color("greyDark"))
+        floaty.hasShadow = false
+        floaty.itemShadowColor = UIColor.black.withAlphaComponent(0.2)
+        floaty.addItem("Atendimento", icon: UIImage(systemName: "bag.badge.plus")) { [weak self] _ in
+            guard let self = self else { return }
+            self.navigateToAddAppointment()
+        }
+        floaty.addItem("Compromisso pessoal", icon: UIImage(systemName: "person.badge.plus")) { [weak self] _ in
+            guard let self = self else { return }
+            self.navigateToPersonalAppointment()
+        }
+        self.view.addSubview(floaty)
     }
     
     private func predicateForDayUsingDate(_ date: Date) -> NSPredicate {
@@ -148,12 +169,6 @@ class AppointmentsDayTimelineViewController: DayViewController {
         }
         let hostingController = UIHostingController(rootView: appointmentView.environment(\.managedObjectContext, viewContext))
         navigationController?.present(hostingController, animated: true)
-    }
-      
-    // MARK: Actions
-    
-    @objc func onAddApointmentClicked() {
-        navigateToAddAppointment()
     }
     
     // MARK: EventDataSource
