@@ -91,6 +91,8 @@ struct AppointmentDetailView: View {
                     Section("Data do atendimento") {
                         DatePicker(selection: $startDate, displayedComponents: .date) {
                             Text("Dia")
+                        }.onChange(of: startDate) { _ in
+                            calculateEndDate()
                         }
                         DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
                             Text("Início")

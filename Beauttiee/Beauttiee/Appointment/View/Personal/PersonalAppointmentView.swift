@@ -38,8 +38,14 @@ struct PersonalAppointmentView: View {
                         DatePicker(selection: $startDate, displayedComponents: .date) {
                             Text("Selecione o dia")
                         }
+                        .onChange(of: startDate) { _ in
+                            calculateEndDate()
+                        }
                         DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
                             Text("Início")
+                        }
+                        .onChange(of: startDate) { _ in
+                            calculateEndDate()
                         }
                         DatePicker(selection: $endDate, displayedComponents: .hourAndMinute) {
                             Text("Fim")
@@ -68,6 +74,10 @@ struct PersonalAppointmentView: View {
                 endDate = appointment.endDate ?? Date.now
             }
         }
+    }
+    
+    private func calculateEndDate() {
+        self.endDate = calendar.date(byAdding: .hour, value: 1, to: startDate)!
     }
     
     private func save() {

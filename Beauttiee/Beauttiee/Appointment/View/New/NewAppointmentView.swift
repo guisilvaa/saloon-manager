@@ -87,6 +87,9 @@ struct NewAppointmentView: View {
                         DatePicker(selection: $startDate, displayedComponents: .date) {
                             Text("Selecione o dia")
                         }
+                        .onChange(of: startDate) { _ in
+                            calculateEndDate()
+                        }
                         DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
                             Text("Início")
                         }.onChange(of: startDate) { _ in
