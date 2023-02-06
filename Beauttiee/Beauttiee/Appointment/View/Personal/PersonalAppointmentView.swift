@@ -15,6 +15,7 @@ struct PersonalAppointmentView: View {
     @State var name: String = ""
     @State var startDate = Date.now
     @State var endDate = Date.now
+    @State var allDay = false
     
     private let timeZone = TimeZone(identifier: "America/Sao_Paulo")!
     private var calendar = Calendar.current
@@ -35,20 +36,30 @@ struct PersonalAppointmentView: View {
                         TextField("Informe o nome", text: $name)
                     }
                     Section("Data do compromisso") {
+                        Toggle("Dia inteiro", isOn: $allDay)
+                            .tint(Color("pinkDark"))
+                            .onChange(of: allDay) { _ in
+                                calculateEndDate()
+                            }
+                        
                         DatePicker(selection: $startDate, displayedComponents: .date) {
                             Text("Selecione o dia")
                         }
                         .onChange(of: startDate) { _ in
                             calculateEndDate()
                         }
-                        DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
-                            Text("Início")
-                        }
-                        .onChange(of: startDate) { _ in
-                            calculateEndDate()
-                        }
-                        DatePicker(selection: $endDate, displayedComponents: .hourAndMinute) {
-                            Text("Fim")
+                        
+                        if !allDay {
+                            DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
+                                Text("Início")
+                            }
+                            .onChange(of: startDate) { _ in
+                                calculateEndDate()
+                            }
+                            
+                            DatePicker(selection: $endDate, displayedComponents: .hourAndMinute) {
+                                Text("Fim")
+                            }
                         }
                     }
                 }
@@ -72,12 +83,20 @@ struct PersonalAppointmentView: View {
                 name = appointment.serviceName ?? ""
                 startDate = appointment.startDate ?? Date.now
                 endDate = appointment.endDate ?? Date.now
+                allDay = appointment.isAllDay
+            } else {
+                calculateEndDate()
             }
         }
     }
     
     private func calculateEndDate() {
-        self.endDate = calendar.date(byAdding: .hour, value: 1, to: startDate)!
+        if allDay {
+            self.startDate = calendar.date(bySettingHour: 1, minute: 0, second: 0, of: self.startDate)!
+            self.endDate = calendar.date(byAdding: .hour, value: 22, to: self.startDate)!
+        } else {
+            self.endDate = calendar.date(byAdding: .hour, value: 1, to: startDate)!
+        }
     }
     
     private func save() {
@@ -95,6 +114,7 @@ struct PersonalAppointmentView: View {
             appointmentData?.startDate = startDate
             appointmentData?.endDate = endDate
             appointmentData?.serviceName = name
+            appointmentData?.isAllDay = allDay
 
             try? self.viewContext.save()
             

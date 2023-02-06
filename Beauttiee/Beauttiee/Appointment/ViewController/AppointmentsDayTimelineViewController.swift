@@ -84,7 +84,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
         let endTime = hourFormatter.string(from: appointment.endDate ?? Date.now)
         let appointmentType = AppointmentType(rawValue: Int(appointment.type))
         let title = appointmentType == .client ? "\(appointment.client ?? "") - \(appointment.serviceName ?? "")\n" : "\(appointment.serviceName ?? "")\n"
-        let hourInterval = "\(startTime) - \(endTime)"
+        let hourInterval = appointment.isAllDay ? "Dia inteiro" : "\(startTime) - \(endTime)"
         let textAttributesOne = [NSAttributedString.Key.foregroundColor: UIColor(Color("greyDark")),
                                  NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
         let textAttributesTwo = [NSAttributedString.Key.foregroundColor: UIColor(Color("greyDark")),
@@ -194,7 +194,7 @@ class AppointmentsDayTimelineViewController: DayViewController {
                     let appointmentType = AppointmentType(rawValue: Int(appointment.type))
                     let event = Event()
                     event.userInfo = appointment
-                    event.attributedText = appointmentType == .client ? appointmentInfo(appointment) : appointmentInfo(appointment)
+                    event.attributedText = appointmentInfo(appointment)
                     event.dateInterval = DateInterval(start: appointment.startDate ?? Date(), end: eventEnd)
                     event.color = appointmentType == .client ? UIColor(Color("pinkDark")) : UIColor(Color("greyDark"))
                     event.lineBreakMode = .byTruncatingTail

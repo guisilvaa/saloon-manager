@@ -19,6 +19,7 @@ struct NewAppointmentView: View {
     @State var priceText: String = "R$ 0,00"
     @State var startDate = Date.now
     @State var endDate = Date.now
+    @State var allDay = false
     @State private var currencyFormatter = CurrencyFormatter.init {
         $0.currency = .brazilianReal
         $0.locale = CurrencyLocale.portugueseBrazil
@@ -68,6 +69,7 @@ struct NewAppointmentView: View {
                             if let service = newValue {
                                 price = service.price
                                 priceText = currencyFormatter.string(from: service.price) ?? ""
+                                allDay = service.duration == Int16(ServiceDuration.day.rawValue)
                                 calculateEndDate()
                             }
                         }
@@ -84,19 +86,30 @@ struct NewAppointmentView: View {
                         TextField("Informe o nome", text: $client)
                     }
                     Section("Data do atendimento") {
+                        Toggle("Dia inteiro", isOn: $allDay)
+                            .tint(Color("pinkDark"))
+                            .onChange(of: allDay) { _ in
+                                calculateEndDate()
+                            }
+                        
                         DatePicker(selection: $startDate, displayedComponents: .date) {
                             Text("Selecione o dia")
                         }
                         .onChange(of: startDate) { _ in
                             calculateEndDate()
                         }
-                        DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
-                            Text("Início")
-                        }.onChange(of: startDate) { _ in
-                            calculateEndDate()
-                        }
-                        DatePicker(selection: $endDate, displayedComponents: .hourAndMinute) {
-                            Text("Fim")
+                        
+                        if !allDay {
+                            DatePicker(selection: $startDate, displayedComponents: .hourAndMinute) {
+                                Text("Início")
+                            }
+                            .onChange(of: startDate) { _ in
+                                calculateEndDate()
+                            }
+                            
+                            DatePicker(selection: $endDate, displayedComponents: .hourAndMinute) {
+                                Text("Fim")
+                            }
                         }
                     }
                 }
@@ -120,7 +133,12 @@ struct NewAppointmentView: View {
     private func calculateEndDate() {
         if let service = service,
            let serviceDuration = ServiceDuration(rawValue: Int(service.duration)) {
-            self.endDate = calendar.date(byAdding: .minute, value: serviceDuration.rawValue, to: startDate)!
+            if allDay {
+                self.startDate = calendar.date(bySettingHour: 8, minute: 0, second: 0, of: self.startDate)!
+                self.endDate = calendar.date(byAdding: .hour, value: 10, to: self.startDate)!
+            } else {
+                self.endDate = calendar.date(byAdding: .minute, value: serviceDuration.rawValue, to: startDate)!
+            }
         }
     }
     
@@ -133,7 +151,8 @@ struct NewAppointmentView: View {
             appointment.price = price ?? 0
             appointment.serviceName = service?.name
             appointment.client = client
-            appointment.type = Int16(AppointmentType.client.rawValue) 
+            appointment.type = Int16(AppointmentType.client.rawValue)
+            appointment.isAllDay = allDay
             try? self.viewContext.save()
             
             dismiss()
