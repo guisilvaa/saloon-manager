@@ -16,6 +16,7 @@ struct PersonalAppointmentView: View {
     @State var startDate = Date.now
     @State var endDate = Date.now
     @State var allDay = false
+    @State var showDelete = false
     
     private let timeZone = TimeZone(identifier: "America/Sao_Paulo")!
     private var calendar = Calendar.current
@@ -66,13 +67,31 @@ struct PersonalAppointmentView: View {
                 .scrollContentBackground(.hidden)
                 .foregroundColor(Color("greyDark"))
                 
+                if showDelete {
+                    Button(action: delete) {
+                        Text("Apagar")
+                            .foregroundColor(Color("pinkDark"))
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color("pinkDark"), lineWidth: 1)
+                            )
+                    }
+                    .tint(Color("pinkDark"))
+                    .controlSize(.large)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 10)
+                }
+                
                 Button(action: save) {
                     Text("Salvar")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
-                .padding(20)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
             }
             .navigationTitle("Compromisso")
             .navigationBarTitleDisplayMode(.inline)
@@ -84,8 +103,10 @@ struct PersonalAppointmentView: View {
                 startDate = appointment.startDate ?? Date.now
                 endDate = appointment.endDate ?? Date.now
                 allDay = appointment.isAllDay
+                showDelete = true
             } else {
                 calculateEndDate()
+                showDelete = false
             }
         }
     }
@@ -116,13 +137,24 @@ struct PersonalAppointmentView: View {
             appointmentData?.serviceName = name
             appointmentData?.isAllDay = allDay
 
-            try? self.viewContext.save()
-            
-            dismiss()
-            
-            if let onNewPersonalAppoitment = self.onNewPersonalAppoitment {
-                onNewPersonalAppoitment()
-            }
+            appointmentChanged()
+        }
+    }
+    
+    private func delete() {
+        if let appointment {
+            viewContext.delete(appointment)
+            appointmentChanged()
+        }
+    }
+    
+    private func appointmentChanged() {
+        try? self.viewContext.save()
+        
+        dismiss()
+        
+        if let onNewPersonalAppoitment = self.onNewPersonalAppoitment {
+            onNewPersonalAppoitment()
         }
     }
 }
